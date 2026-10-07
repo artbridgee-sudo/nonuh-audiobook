@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>논어 퀴즈</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="『논어통독』에서 뽑은 50문제. 링크를 누르면 바로 풀 수 있습니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="논어 퀴즈 · 50문제">
+<meta property="og:description" content="『논어통독』(진다청 지음 · 김태만 옮김)에서 뽑은 50문제. 링크를 누르면 바로 풀 수 있습니다.">
+<meta property="og:image" content="https://artbridgee-sudo.github.io/nonuh-audiobook/icons/og-quiz.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="theme-color" content="#EEF1EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="논어 퀴즈">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+TC:wght@500&display=swap">
+<style>
+/* Layout: 한 칸짜리 문제 카드. 위 제목줄, 가운데 문제, 아래로 보기와 해설이 이어짐. */
+:root{
+  --paper:#EEF1EC; --surface:#F8FAF6; --ink:#1B2320; --muted:#5B6863; --line:#D3DBD5;
+  --jade:#2D6A59; --jade-ink:#FFFFFF; --wash:rgba(45,106,89,.13); --slip:#D9CDA6; --slip-ink:#3B3320; --bad:#B3412E;
+  --f-display:"Hahmlet","Gowun Batang","Noto Serif TC",serif;
+  --f-body:"Gowun Batang","Noto Serif TC","AppleMyungjo","Batang",serif;
+  --f-han:"Noto Serif TC","Gowun Batang",serif;
+  --f-ui:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
+  --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC; --bad:#F09A85; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
+  --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC; --bad:#F09A85; color-scheme:dark}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible{outline:2px solid var(--jade);outline-offset:2px;border-radius:8px}
+.ico{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:6px;min-height:54px;padding-inline:8px 14px;background:var(--paper);border-bottom:1px solid var(--line)}
+.top button{padding:8px;border-radius:10px;color:var(--muted)}
+.top button:hover{background:var(--wash)}
+.top b{flex:1;font-family:var(--f-display);font-size:18px;font-weight:700;padding-left:8px}
+.top b small{font-family:var(--f-han);font-weight:500;font-size:12px;color:var(--muted);margin-left:6px;letter-spacing:.12em}
+.top .pg{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+main{padding:22px 16px 40px}
+.wrap{max-width:34em;margin:0 auto;display:grid;gap:16px}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:6px 0 4px}
+.hero .slip{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--f-han);font-size:20px;letter-spacing:.3em;background:var(--slip);color:var(--slip-ink);padding:14px 9px;border-radius:3px}
+.hero h1{margin:0;font-family:var(--f-display);font-size:30px;line-height:1.2}
+.hero p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.intro{font-family:var(--f-body);font-size:16px;line-height:1.75;color:var(--muted);margin:0;word-break:keep-all}
+.rounds{display:grid;gap:10px}
+.round{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.round:hover{border-color:var(--jade)}
+.han{width:46px;height:46px;display:grid;place-items:center;border-radius:6px;background:var(--slip);color:var(--slip-ink);font-family:var(--f-han);font-size:24px}
+.round b{display:block;font-family:var(--f-display);font-size:17px}
+.round small{display:block;color:var(--muted);font-size:13px;margin-top:2px;word-break:keep-all}
+.round .best{font-size:12.5px;color:var(--jade);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.meta{font-size:13px;font-weight:600;color:var(--jade);letter-spacing:.04em}
+.orig{font-family:var(--f-han);font-weight:500;font-size:24px;line-height:1.6;letter-spacing:.04em;padding:12px 16px;border-left:3px solid var(--slip);background:var(--wash);border-radius:0 8px 8px 0;margin:0;word-break:keep-all}
+.qtext{font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.5;margin:0;text-wrap:balance;word-break:keep-all}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center;min-height:58px;padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);text-align:left;font-size:17px;line-height:1.45;word-break:keep-all}
+.opt .k{font-weight:600;color:var(--muted);font-size:18px}
+.opt:not([disabled]):hover{border-color:var(--jade)}
+.opt[disabled]{cursor:default}
+.opt.ok{border-color:var(--jade);background:var(--wash)}
+.opt.ok .k{color:var(--jade)}
+.opt.ng{border-color:var(--bad)}
+.opt.ng .k{color:var(--bad)}
+.opt.dim{opacity:.5}
+#after{display:grid;gap:12px}
+#after:empty{display:none}
+.ex{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-body);font-size:16px;line-height:1.75;word-break:keep-all}
+.ex b{display:block;font-family:var(--f-ui);font-size:15px;margin-bottom:4px}
+.ex b.good{color:var(--jade)}
+.ex b.bad{color:var(--bad)}
+.ex .src{display:block;margin-top:6px;font-family:var(--f-ui);font-size:12.5px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:10px 14px;border-radius:12px;font-size:15px;font-weight:600;background:var(--jade);color:var(--jade-ink)}
+.btn.ghost{background:transparent;color:var(--jade);border:1px solid var(--jade)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row .btn{flex:1;min-width:9em}
+.score{text-align:center;display:grid;gap:6px;padding:12px 0}
+.score .big{font-family:var(--f-display);font-size:56px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.score .big small{font-size:24px;color:var(--muted)}
+.score p{margin:0;font-family:var(--f-body);font-size:17px;color:var(--muted);word-break:keep-all}
+.miss{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.miss li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:15px;line-height:1.6;word-break:keep-all}
+.miss li span{display:block;color:var(--jade);font-weight:600;margin-top:4px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:99px;font-size:14px;font-weight:600}
+.foot{margin-top:8px;font-size:12.5px;color:var(--muted);text-align:center}
+@media (max-width:380px){.qtext{font-size:19px}.orig{font-size:21px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <button id="back" aria-label="회차 목록으로" hidden><svg class="ico" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <b id="title">논어 퀴즈<small>論語</small></b>
+  <span class="pg" id="prog"></span>
+</header>
+<main><div class="wrap" id="view"></div></main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script type="application/json" id="quiz-data">{"rounds":[{"title":"배움의 즐거움","han":"學","sub":"배우고 익히는 일에 관한 공자의 말"},{"title":"공자와 제자들","han":"師","sub":"안회, 자로, 자공, 증자와 그 밖의 제자들"},{"title":"인과 군자","han":"仁","sub":"어진 마음과 군자다운 사람"},{"title":"예와 정치","han":"禮","sub":"태산과 곡부 이야기도 나옵니다"},{"title":"성어와 숫자","han":"數","sub":"사자성어와 숫자로 보는 『논어』"}],"items":[{"r":0,"o":"學而時□之，不亦說乎？","q":"『논어』 첫 장입니다. 빈칸에 들어갈 글자는?","c":["學 (학)","習 (습)","思 (사)","行 (행)"],"ex":"“배워서 때맞춰 연습하면 또한 기쁘지 아니한가?” 『논어』 전체를 여는 첫 구절입니다. 책은 이 세 구절을 『논어』 전체를 이해하는 열쇠라고 풀이합니다.","v":"1.1","a":1},{"r":0,"q":"공자가 “마흔 살에 미혹되지 않았다”고 한 데서 나와, 마흔 살을 가리키게 된 말은?","c":["이립 (而立)","지천명 (知天命)","이순 (耳順)","불혹 (不惑)"],"ex":"“나는 열다섯 살에 학문에 뜻을 두었고, 서른 살에 자립하였으며, 마흔 살에 미혹되지 않았고, 쉰 살에 천명을 알았으며….” 이 장에서 나이를 이르는 말들이 생겼습니다.","v":"2.4","a":3},{"r":0,"q":"같은 장에서 공자는 예순 살에 어떻게 되었다고 했을까?","c":["천명을 알았다","자립하였다","귀가 순해졌다","법도를 넘지 않게 되었다"],"ex":"“예순 살에 귀가 순해졌고(耳順), 일흔 살에 마음이 하고자 하는 대로 따라도 법도를 넘지 않았다.” 천명을 안 것은 쉰, 자립은 서른 때의 일입니다.","v":"2.4","a":2},{"r":0,"o":"溫故而知新，可以爲師矣。","q":"‘온고지신’ 할 수 있는 사람은 무엇이 될 자격이 있다고 했을까?","c":["스승","임금","성인","재상"],"ex":"“이미 배운 옛 지식이나 경험을 거듭 되새김으로써 새로운 이치나 깨달음을 얻어낼 수 있다면 비로소 스승이 될 자격이 있다.”","v":"2.11","a":0},{"r":0,"o":"學而不思則罔，思而不學則殆。","q":"배우기만 하고 생각하지 않으면 어둡다. 그렇다면 생각만 하고 배우지 않으면?","c":["게을러진다","교만해진다","위태롭다","외로워진다"],"ex":"“글만 읽고 사색하지 않으면 어두워[罔] 미망에 빠지고, 공상만 하고 글을 읽지 않으면 위태롭다[殆].”","v":"2.15","a":2},{"r":0,"o":"知之爲知之，不知爲不知，是知也。","q":"“아는 것을 안다 하고, 모르는 것을 모른다 하는 것이 앎이다.” 공자가 이 말을 들려준 제자는?","c":["자로 (중유)","자공","안회","증자"],"ex":"공자는 “중유야, 내가 너에게 참된 앎의 태도를 알려주마” 하고 이 말을 했습니다. 중유(由)가 바로 자로입니다.","v":"2.17","a":0},{"r":0,"q":"공문자가 ‘문(文)’이라는 시호를 받은 까닭으로 공자가 든 것은?","c":["전쟁에서 큰 공을 세웠다","재물을 백성에게 나누었다","아랫사람에게 묻기를 부끄러워하지 않았다","시를 잘 지었다"],"ex":"“그는 부지런하고 배움을 좋아하며, 자기보다 지위가 낮은 사람에게 묻는 것을 부끄러워하지 않았다(不恥下問).”","v":"5.15","a":2},{"r":0,"o":"知之者不如好之者，好之者不如樂之者。","q":"아는 사람은 좋아하는 사람만 못하고, 좋아하는 사람은 어떤 사람만 못하다고 했을까?","c":["실천하는 사람","기록하는 사람","가르치는 사람","즐거워하는 사람"],"ex":"“아는 사람은 좋아하는 사람만 못하고, 좋아하는 사람은 그 속에서 즐거워하는 사람만 못하다.”","v":"6.20","a":3},{"r":0,"o":"三人行，必有我師焉。","q":"“세 사람이 길을 가면 반드시 내 스승이 있다.” 공자가 말한 배우는 방법은?","c":["스승은 세 명이면 충분하다","장점은 골라 본받고, 단점은 나를 고치는 거울로 삼는다","세 사람 이상 모여야 공부가 된다","길을 떠나 여행하며 배운다"],"ex":"“그 사람의 장점을 골라 본받고, 그 사람의 단점은 자신이 고친다.”","v":"7.22","a":1},{"r":0,"q":"섭공이 공자의 사람됨을 물었는데 자로가 답하지 못했습니다. 공자가 “이렇게 말하지 그랬느냐” 한 자기 모습은?","c":["뗏목을 타고 바다로 떠나려는 사람","옛것을 풀어 전할 뿐 새로 짓지 않는 사람","분발하면 밥을 잊고, 즐거우면 근심을 잊어, 늙는 줄도 모르는 사람","하루에 여러 번 자신을 돌아보는 사람"],"ex":"“그 사람은 분발하면 밥을 잊고(發憤忘食), 즐거우면 근심을 잊으며(樂以忘憂), 늙음이 곧 닥쳐옴도 미처 알지 못한다.”","v":"7.19","a":2},{"r":1,"q":"“한 그릇 밥과 한 표주박 물로 누추한 골목에 살면서도 그 즐거움을 바꾸지 않는다.” 공자가 이렇게 칭찬한 제자는?","c":["재여","안회","자로","자공"],"ex":"“어질도다, 안회여! 한 그릇 밥에 한 표주박 물(一簞食 一瓢飮)…, 안회는 그 즐거움을 바꾸지 않는다.” 책은 안회가 공자처럼 가난한 집안 출신이었다고 소개합니다.","v":"6.11","a":1},{"r":1,"o":"朽木不可雕也","q":"대낮에 잠을 자다가 “썩은 나무는 조각할 수 없다”는 꾸중을 들은 제자는?","c":["번지","재여 (재아)","자로","염유"],"ex":"“재여가 대낮에 잠을 잤다.” 공자는 이 일 뒤로 사람의 말만 믿지 않고 실제 행동을 살피게 되었다고 했습니다.","v":"5.10","a":1},{"r":1,"o":"吾日三省吾身","q":"“나는 날마다 여러 번 나 자신을 돌아본다”고 말한 사람은?","c":["자하","자공","증자","유자"],"ex":"증자는 남을 위한 일에 최선을 다했는지, 벗에게 신의를 지켰는지, 배운 것을 익혔는지를 날마다 돌아본다고 했습니다.","v":"1.4","a":2},{"r":1,"q":"자공이 “안회는 하나를 들으면 열을 알고, 저는 둘을 압니다” 하자 공자의 대답은?","c":["“안회는 아직 멀었다”","“나도 너도 그에게 미치지 못한다”","“너도 노력하면 그만큼 된다”","“둘을 알면 충분하다”"],"ex":"“확실히 미치지 못한다. 나와 너 모두 그에게 미치지 못한다.” 여기서 ‘문일지십(聞一知十)’이라는 말이 나왔습니다.","v":"5.9","a":1},{"r":1,"q":"“도가 행해지지 않으면 뗏목을 타고 바다로 나가리라. 나를 따를 사람은 아마 ○○일 것이다.” 이 제자는?","c":["증자","안회","자유","자로"],"ex":"자로가 이 말을 듣고 기뻐하자, 공자는 “이 사람은 용맹이 나보다 지나치니, 뗏목 만들 나무를 구할 데가 없구나” 하고 말했습니다.","v":"5.7","a":3},{"r":1,"o":"割雞焉用牛刀？","q":"무성에서 거문고 노랫소리를 듣고 공자가 “닭 잡는 데 어찌 소 잡는 칼을 쓰랴” 하며 웃었습니다. 그 고을을 다스리던 제자는?","c":["자로","자장","자하","자유 (언언)"],"ex":"자유가 “군자가 도를 배우면 사람을 사랑하게 된다”는 스승의 말을 들어 답하자, 공자는 “언언의 말이 맞다. 방금 한 말은 농담이었다”고 했습니다.","v":"17.4","a":3},{"r":1,"q":"공자가 아들 백어(공리)에게 “이것을 배우지 않으면 말을 할 수가 없다”고 한 것은?","c":["『시』","예","역사","음악"],"ex":"뜰에서 아버지를 지나치던 백어에게 공자는 먼저 『시』를, 다른 날에는 예를 배웠는지 물었습니다. “예를 배우지 않으면 설 수가 없다.”","v":"16.13","a":0},{"r":1,"q":"가장 아끼던 제자 안연이 죽자 공자는 무엇이라 탄식했을까?","c":["“하늘이 나를 망하게 하는구나!”","“나도 곧 따라가리라”","“이제 누구를 가르치겠는가”","“이것이 운명이로다”"],"ex":"“아! 하늘이 나를 망하게 하는구나! 하늘이 나를 망하게 하는구나!” (天喪予)","v":"11.9","a":0},{"r":1,"o":"吾道一以貫之。","q":"“나의 도는 하나로 꿰뚫는다.” 증자는 이 ‘하나’를 무엇이라고 풀었을까?","c":["충과 서","인과 의","효와 제","예와 악"],"ex":"“선생님 학설의 핵심 이념은 충(忠)과 서(恕) 두 글자일 따름입니다.”","v":"4.15","a":0},{"r":1,"q":"이 책에 따르면, 공자가 만년에 겪은 슬픔을 일어난 순서대로 바르게 놓은 것은?","c":["자로 → 안회 → 아들 공리","안회 → 자로 → 아들 공리","안회 → 아들 공리 → 자로","아들 공리 → 안회 → 자로"],"ex":"68세에 노나라로 돌아온 뒤, 69세에 아들 공리가 죽고, 71세에 안회가 병사했으며, 72세에 자로가 위나라에서 피살되었습니다.","v":"","a":3},{"r":2,"o":"巧言令色，鮮矣仁。","q":"말을 번드르르하게 하고 얼굴빛을 꾸미는 사람에게는 무엇이 드물다고 했을까?","c":["재물","지혜","벗","인 (仁)"],"ex":"“입에 꿀을 바르고 얼굴 가득 웃음을 띤다면, 그 사람의 ‘인’은 아마 매우 적을 것이다.”","v":"1.3","a":3},{"r":2,"o":"克己復禮爲仁。","q":"안연이 인을 묻자 공자의 대답. “자기를 이겨 ○로 돌아가는 것이 인이다.”","c":["덕 (德)","예 (禮)","도 (道)","의 (義)"],"ex":"“자기를 이겨 예로 돌아가는 것이 인이다.” 실천 조목으로는 “예가 아니면 보지도 듣지도 말하지도 움직이지도 말라”고 했습니다.","v":"12.1","a":1},{"r":2,"o":"己所不欲，勿施於人。","q":"자공이 “평생 행할 한마디”를 묻자 공자가 꼽은 글자는?","c":["서 (恕)","신 (信)","효 (孝)","충 (忠)"],"ex":"“그것은 아마 서(恕)이리라! 자기가 원하지 않는 것을 남에게 베풀지 말라.”","v":"15.24","a":0},{"r":2,"q":"번지가 인(仁)을 묻자 공자의 짧은 대답은?","c":["“사람을 사랑하는 것이다”","“사람을 아는 것이다”","“예를 지키는 것이다”","“말을 삼가는 것이다”"],"ex":"“사람을 사랑하는 것이다(愛人).” 지혜를 묻자 “사람을 아는 것이다(知人)”라고 답했습니다.","v":"12.22","a":0},{"r":2,"q":"“소인은 같아지기만 할 뿐 화합하지 않는다(同而不和).” 그렇다면 군자는?","c":["긍이부쟁 (矜而不爭)","태이불교 (泰而不驕)","주이불비 (周而不比)","화이부동 (和而不同)"],"ex":"“군자는 화합을 추구하되 세속에 뒤섞이지 않고, 소인은 세속에 뒤섞이기만 할 뿐 화합하지 않는다.”","v":"13.23","a":3},{"r":2,"o":"君子不器。","q":"‘군자불기’의 뜻으로 알맞은 것은?","c":["군자는 남을 도구로 쓰지 않는다","군자는 음식을 가리지 않는다","군자는 한 가지 쓰임에만 머무는 그릇이 되어서는 안 된다","군자는 좋은 그릇을 탐하지 않는다"],"ex":"“군자는 그릇처럼(단지 일정한 용도만 가져서는) 안 된다.”","v":"2.12","a":2},{"r":2,"o":"歲寒，然後知松柏之後凋也。","q":"날씨가 추워진 뒤에야 늦게 시드는 줄 알게 된다는 나무는?","c":["버드나무","대나무","매화나무","소나무와 잣나무"],"ex":"“천지가 얼어붙는 계절이 되어서야, 비로소 소나무와 잣나무가 가장 나중에 시드는 것임을 알게 된다.”","v":"9.28","a":3},{"r":2,"o":"知者不惑，仁者不憂，勇者不懼。","q":"지혜로운 자는 미혹되지 않고, 어진 자는 근심하지 않는다. 용감한 자는?","c":["다투지 않는다","물러서지 않는다","자랑하지 않는다","두려워하지 않는다"],"ex":"“지혜로운 자는 미혹되지 않고, 어진 자는 근심하지 않고, 용감한 자는 두려워하지 않는다.”","v":"9.29","a":3},{"r":2,"o":"知者樂水，仁者樂山。","q":"이 구절의 ‘樂’은 어떻게 읽을까?","c":["요","락","악","낙"],"ex":"‘좋아한다’는 뜻일 때는 ‘요’로 읽어 ‘지자요수 인자요산’이 됩니다. 같은 글자가 ‘즐겁다’면 락, ‘음악’이면 악입니다. 오디오북도 이렇게 읽습니다.","v":"6.23","a":0},{"r":2,"o":"德不孤，必有鄰。","q":"“덕은 외롭지 않으니 반드시 ○○이 있다.”","c":["스승","이웃","복","재물"],"ex":"“덕이 있는 사람은 고독하지 않으니, 반드시 뜻을 같이하는 이가 와서 함께한다.”","v":"4.25","a":1},{"r":3,"q":"계씨가 자기 집 뜰에서 추게 해 공자를 분노하게 한 ‘팔일무’. 춤추는 사람은 모두 몇 명일까?","c":["16명","36명","8명","64명"],"ex":"책의 설명대로 ‘팔일’은 한 줄에 여덟 명씩 여덟 줄, 모두 64명이 추는 춤입니다. 본래 주 천자의 궁정에서만 출 수 있었고, 대부인 계씨의 집에서는 사일(四佾)까지만 허락되었습니다.","v":"3.1","a":3},{"r":3,"q":"계씨가 그 산의 신에게 제사를 지내려 하자 공자는 “그 산의 신이 임방만도 못하단 말인가” 하고 탄식했습니다. 이번 탐방지이기도 한 이 산은?","c":["화산","니산","숭산","태산"],"ex":"“계씨가 태산에서 여제(旅祭)를 지내려 하였다.” 책은 이 ‘여(旅)’가 여행이 아니라 태산의 신에게 올리는 제례이며, 본래 주 천자만 지낼 수 있는 제사였다고 풀이합니다.","v":"3.6","a":3},{"r":3,"o":"爲政以德，譬如北辰。","q":"공자는 덕으로 하는 정치를 무엇에 비유했을까?","c":["북극성","해와 달","큰 강","높은 산"],"ex":"“스스로 그 자리에 있기만 하면 다른 별들이 모두 그 둘레를 돌게 된다.”","v":"2.1","a":0},{"r":3,"q":"자공이 정치를 묻자 공자는 식량, 군비, 백성의 믿음을 꼽았습니다. 끝까지 버릴 수 없다고 한 것은?","c":["백성의 믿음","법령","군비","식량"],"ex":"군비를 먼저, 그다음 식량을 버린다고 했습니다. “예로부터 사람은 모두 죽는 법이지만, 백성이 신뢰하지 않으면 나라가 설 수 없다(民無信不立).”","v":"12.7","a":0},{"r":3,"o":"君君，臣臣，父父，子子。","q":"제나라 경공에게 한 이 대답의 뜻은?","c":["임금과 신하, 아버지와 아들은 서로 같아야 한다","임금도 아버지처럼 자식을 길러야 한다","임금 밑에 신하, 아버지 밑에 아들이 있다","임금은 임금답고, 신하는 신하답고, 아버지는 아버지답고, 자식은 자식다워야 한다"],"ex":"경공은 “훌륭한 말씀입니다! 그렇지 않다면 곡식이 있어도 내가 먹을 수 있겠습니까?” 하고 감탄했습니다.","v":"12.11","a":3},{"r":3,"o":"君子之德風，小人之德草。","q":"군자의 덕은 바람이고, 소인의 덕은 ○이다. ○ 위로 바람이 불면 반드시 눕는다.","c":["흙","물","풀","나무"],"ex":"계강자가 무도한 자를 죽이면 어떠냐고 묻자 공자는 “어찌 살육을 쓰십니까? 그대가 선을 바라면 백성도 선해질 것”이라며 이렇게 말했습니다.","v":"12.19","a":2},{"r":3,"q":"위나라 정치를 맡으면 무엇부터 하겠느냐는 자로의 물음에 공자의 대답은?","c":["군대를 기르겠다","명분을 바로잡겠다","세금을 줄이겠다","인재를 모으겠다"],"ex":"“반드시 명분을 바로잡겠다(正名)!” 명분이 바르지 않으면 말이 순조롭지 않고, 결국 백성이 손발 둘 곳을 모르게 된다고 했습니다.","v":"13.3","a":1},{"r":3,"o":"近者說，遠者來。","q":"섭공이 정치를 묻자 공자의 대답입니다. 뜻은?","c":["가까이 있는 사람이 먼저 와야 한다","가까운 나라와 화해하고 먼 나라를 친다","가까운 사람과 말하고 먼 사람은 오게 한다","가까운 사람을 기쁘게 하면 먼 데 사람이 찾아온다"],"ex":"“나라 안의 사람들을 기쁘게 하면 먼 곳의 사람들이 귀부해 온다.” 여기서 說은 ‘기쁠 열’입니다.","v":"13.16","a":3},{"r":3,"q":"정령과 형벌로만 다스리면 백성은 처벌을 피하려고만 할 뿐 무엇이 없다고 했을까?","c":["두려움","재물","지혜","부끄러움"],"ex":"“덕으로 인도하고 예로 규범하면 백성들이 수치심을 느낄 뿐 아니라 내심으로 복종한다(有恥且格).”","v":"2.3","a":3},{"r":3,"q":"이 책에 나오는 이야기입니다. 유방이 곡부를 포위했을 때 성안에서 흘러나와, 이곳이 공자의 고향임을 깨닫게 한 소리는?","c":["종소리","북소리와 함성","거문고와 노랫소리","글 읽는 소리"],"ex":"유방은 성안의 거문고와 노랫소리를 듣고 공자의 유풍이 남아 있음을 알아차렸고, 항복한 노나라 사람들을 곤경에 빠뜨리지 않았다고 합니다.","v":"","a":2},{"r":4,"q":"자공이 자장(師)과 자하(商) 중 누가 나으냐 묻자 공자의 대답에서 나온 성어는?","c":["온고지신 (溫故知新)","일이관지 (一以貫之)","과유불급 (過猶不及)","후생가외 (後生可畏)"],"ex":"“전손사(자장)는 지나치고, 복상(자하)은 미치지 못한다. 지나침은 미치지 못함과 같다.”","v":"11.16","a":2},{"r":4,"o":"後生可畏","q":"‘후생가외’의 뜻으로 알맞은 것은?","c":["죽은 뒤를 두려워하라","뒤에 태어난 사람은 앞사람을 두려워해야 한다","젊은 후학은 경외할 만하다","늦게 배우면 두렵다"],"ex":"“젊은이는 경외할 만하니, 후학들의 장래가 오늘만 못하리라는 것을 어찌 알겠는가?” 다만 마흔, 쉰이 되어도 도를 듣지 못하면 경외할 것이 못 된다고 덧붙였습니다.","v":"9.23","a":2},{"r":4,"o":"有敎無類。","q":"‘유교무류’의 뜻은?","c":["가르칠 만한 무리가 따로 없다","부류마다 가르침을 달리한다","가르침에는 신분이나 부류의 차별이 없다","가르침이 있는 곳에 무리가 없다"],"ex":"“나는 어떤 사람이든 가르칠 수 있으며, 족류(族類)를 구분하지 않는다.” 책은 공자의 제자들이 여러 나라, 여러 계층 출신이었다고 설명합니다.","v":"15.39","a":2},{"r":4,"q":"“은덕으로 원한을 갚으면 어떻습니까?”라는 물음에 공자의 대답은?","c":["원한은 정직함으로, 은덕은 은덕으로 갚아라","원한은 잊어버려라","원한도 은덕으로 갚아라","원한은 원한으로 갚아라"],"ex":"“그러면 은덕에는 무엇으로 보답하겠는가? 마땅히 정직함으로써 원한에 보답하고, 은덕으로써 은덕에 보답해야 한다(以直報怨 以德報德).”","v":"14.34","a":0},{"r":4,"q":"『논어』는 모두 몇 편으로 이루어져 있을까?","c":["20편","24편","30편","10편"],"ex":"『논어』는 전체 1만 6천 자에도 못 미치는 짧은 텍스트로, 총 20편 512장으로 이루어진 어록입니다. (옮긴이의 글)","v":"","a":0},{"r":4,"q":"공자가 말한 ‘유익한 벗 셋(益者三友)’에 들지 않는 것은?","c":["견문이 넓은 벗","정직한 벗","성실한 벗","말재주가 좋은 벗"],"ex":"정직한 사람, 성실한 사람, 견문이 넓은 사람과 벗하면 유익하고, 겉치레·아첨·말재주에 능한 사람과 벗하면 해롭다고 했습니다.","v":"16.4","a":3},{"r":4,"q":"‘제자 삼천’과 함께 공자 문하의 뛰어난 제자들을 일컫는 말은?","c":["칠십이 현인","삼십육 현인","백팔 현인","이십사 현인"],"ex":"책은 공자가 평생 젊은이를 길러 ‘제자 삼천’, ‘칠십이 현인’이라 일컬어질 정도였다고 말합니다.","v":"","a":0},{"r":4,"o":"述而不作，信而好古。","q":"공자가 자신을 두고 한 ‘술이부작’의 뜻은?","c":["배운 것만 말하고 생각은 하지 않는다","글을 지어도 남에게 보이지 않는다","말은 하되 실천하지 않는다","옛 가르침을 풀어 전할 뿐 새로 지어내지 않는다"],"ex":"“옛 가르침을 풀어 설명하고 이어받을 뿐, 새로 지어내거나 내세우지 않으며, 고전을 깊이 믿고 열애한다.”","v":"7.1","a":3},{"r":4,"q":"이 책에 따르면 공자는 몇 해를 살았을까?","c":["여든","일흔셋","예순아홉","일흔하나"],"ex":"“공자는 일흔셋을 살았으니, 70세는 사실 이미 공자 생명의 마지막에 이른 것이다.” 공자의 생몰년은 기원전 551~479년입니다.","v":"","a":1},{"r":4,"o":"不知命，無以爲君子也。","q":"『논어』의 마지막 장. 군자가 되려면 무엇을 알아야 한다고 했을까?","c":["시","음악","천명","병법"],"ex":"“천명을 알지 못하면 군자가 될 수 없고, 예를 알지 못하면 세상에 나설 수 없으며, 말을 알지 못하면 사람을 알아볼 수 없다.”","v":"20.3","a":2}]}</script>
+<script>
+(function(){
+'use strict';
+var QZ = JSON.parse(document.getElementById('quiz-data').textContent);
+var $ = function(id){ return document.getElementById(id); };
+var MARK = ['①', '②', '③', '④'];
+var KEY = 'nonuh-quiz-page-v1';
+var best = {};
+try { best = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { best = {}; }
+function saveBest(){ try { localStorage.setItem(KEY, JSON.stringify(best)); } catch(e) {} }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+var qz = null;
+
+function home(){
+  qz = null;
+  $('title').innerHTML = '논어 퀴즈<small>論語</small>'; $('prog').textContent = ''; $('back').hidden = true;
+  var h = '<div class="hero"><div class="slip" aria-hidden="true">論語</div><div><h1>논어 퀴즈</h1><p>『논어통독』 진다청 지음 · 김태만 옮김</p></div></div>'
+    + '<p class="intro">책에서 뽑은 ' + QZ.items.length + '문제입니다. 회차마다 10문제이고, 답을 고르면 바로 정답과 해설이 나옵니다.</p><div class="rounds">';
+  QZ.rounds.forEach(function(r, ri){
+    var n = QZ.items.filter(function(x){ return x.r === ri; }).length, b = best[ri];
+    h += '<button class="round" data-r="' + ri + '"><span class="han" aria-hidden="true">' + esc(r.han || '') + '</span><span><b>' + (ri + 1) + '회 · ' + esc(r.title) + '</b><small>' + esc(r.sub || '') + '</small></span><span class="best">' + (b != null ? '최고 ' + b + '/' + n : n + '문제') + '</span></button>';
+  });
+  h += '<button class="round" data-r="mix"><span class="han" aria-hidden="true">雜</span><span><b>섞어서 10문제</b><small>모든 회차에서 무작위로 나옵니다</small></span><span class="best">' + (best.mix != null ? '최고 ' + best.mix + '/10' : '10문제') + '</span></button>';
+  h += '</div><p class="foot">한 번 열어 두면 인터넷이 없어도 다시 풀 수 있습니다.</p>';
+  $('view').innerHTML = h; window.scrollTo(0, 0);
+}
+function start(r){
+  var set;
+  if (r === 'mix'){ set = QZ.items.slice(); for (var i = set.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = set[i]; set[i] = set[j]; set[j] = t; } set = set.slice(0, 10); }
+  else set = QZ.items.filter(function(x){ return x.r === r; });
+  qz = {set: set, i: 0, score: 0, miss: [], round: r};
+  $('title').textContent = r === 'mix' ? '섞어서 10문제' : (r + 1) + '회 · ' + QZ.rounds[r].title;
+  $('back').hidden = false;
+  show();
+}
+function show(){
+  var it = qz.set[qz.i];
+  $('prog').textContent = (qz.i + 1) + ' / ' + qz.set.length;
+  var h = '<div class="meta">' + (qz.i + 1) + '번 문제' + (it.v ? ' · ' + esc(it.v) + '장' : '') + '</div>';
+  if (it.o) h += '<p class="orig" lang="zh-Hant">' + esc(it.o) + '</p>';
+  h += '<p class="qtext">' + esc(it.q) + '</p><div class="opts">';
+  it.c.forEach(function(c, ci){ h += '<button class="opt" data-c="' + ci + '"><span class="k">' + MARK[ci] + '</span><span>' + esc(c) + '</span></button>'; });
+  h += '</div><div id="after"></div>';
+  $('view').innerHTML = h; window.scrollTo(0, 0);
+}
+function answer(ci){
+  var it = qz.set[qz.i], ok = ci === it.a;
+  if (ok) qz.score++; else qz.miss.push(it);
+  [].forEach.call(document.querySelectorAll('.opt'), function(b){
+    var k = +b.dataset.c; b.disabled = true;
+    if (k === it.a) b.classList.add('ok'); else if (k === ci) b.classList.add('ng'); else b.classList.add('dim');
+  });
+  var last = qz.i === qz.set.length - 1;
+  $('after').innerHTML = '<div class="ex"><b class="' + (ok ? 'good' : 'bad') + '">' + (ok ? '정답입니다!' : '아쉬워요. 정답은 ' + MARK[it.a] + '번') + '</b>' + esc(it.ex)
+    + (it.v ? '<span class="src">『논어』 ' + esc(it.v) + '장</span>' : '<span class="src">『논어통독』 해설에서</span>') + '</div>'
+    + '<button class="btn" id="next">' + (last ? '결과 보기' : '다음 문제') + '</button>';
+  $('next').onclick = function(){ if (last) end(); else { qz.i++; show(); } };
+  setTimeout(function(){ var a = $('after'); if (a) a.scrollIntoView({block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }, 30);
+}
+function end(){
+  var n = qz.set.length, key = qz.round === 'mix' ? 'mix' : qz.round;
+  if (best[key] == null || qz.score > best[key]) { best[key] = qz.score; saveBest(); }
+  $('prog').textContent = '';
+  var msg = qz.score === n ? '만점입니다. 공자께서도 기뻐하시겠습니다.' : qz.score >= n * 0.7 ? '훌륭합니다. 틀린 문제만 다시 보면 완벽합니다.' : '틀린 문제를 한 번 더 읽어 보세요.';
+  var h = '<div class="score"><div class="big">' + qz.score + '<small> / ' + n + '</small></div><p>' + msg + '</p></div>';
+  if (qz.miss.length){
+    h += '<div class="meta">다시 볼 문제</div><ul class="miss">';
+    qz.miss.forEach(function(it){ h += '<li>' + esc(it.q) + '<span>정답: ' + esc(it.c[it.a]) + '</span></li>'; });
+    h += '</ul>';
+  }
+  h += '<button class="btn ghost" id="share">결과 보내기</button><div class="row"><button class="btn ghost" id="again">다시 풀기</button><button class="btn" id="homeBtn">다른 회차</button></div>';
+  $('view').innerHTML = h; window.scrollTo(0, 0);
+  $('again').onclick = function(){ start(qz.round); };
+  $('homeBtn').onclick = home;
+  $('share').onclick = function(){
+    var name = qz.round === 'mix' ? '섞어서 10문제' : (qz.round + 1) + '회 ' + QZ.rounds[qz.round].title;
+    var text = '논어 퀴즈 [' + name + '] ' + qz.score + '/' + n + '점!';
+    var url = location.href.split('#')[0];
+    if (navigator.share){ navigator.share({title: '논어 퀴즈', text: text, url: url}).catch(function(){}); return; }
+    var all = text + ' ' + url;
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(all).then(function(){ toast('결과를 복사했습니다. 카톡에 붙여 넣으세요.'); }, function(){ toast(all); }); }
+    else toast(all);
+  };
+}
+var tt = null;
+function toast(s){ var t = $('toast'); t.textContent = s; t.hidden = false; clearTimeout(tt); tt = setTimeout(function(){ t.hidden = true; }, 3000); }
+
+$('view').addEventListener('click', function(e){
+  var r = e.target.closest('.round'); if (r){ start(r.dataset.r === 'mix' ? 'mix' : +r.dataset.r); return; }
+  var o = e.target.closest('.opt'); if (o && !o.disabled) answer(+o.dataset.c);
+});
+$('back').onclick = home;
+home();
+try { if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(function(){}); } catch(e) {}
+})();
+</script>
+</body>
+</html>
