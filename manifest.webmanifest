@@ -1,0 +1,30 @@
+{
+  "name": "논어통독 오디오북",
+  "short_name": "논어통독",
+  "description": "진다청 지음 · 김태만 옮김. 텍스트를 보며 듣는 『논어통독』 오디오북",
+  "lang": "ko",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#EEF1EC",
+  "theme_color": "#2D6A59",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

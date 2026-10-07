@@ -1,0 +1,822 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" content="진다청 지음 · 김태만 옮김 『논어통독』 오디오북. 98개 장, 20시간 33분. 링크를 누르면 바로 열립니다."><meta property="og:type" content="website"><meta property="og:title" content="논어통독 오디오북"><meta property="og:description" content="진다청 지음 · 김태만 옮김 『논어통독』 오디오북. 98개 장, 20시간 33분. 링크를 누르면 바로 열립니다."><meta property="og:image" content="https://artbridgee-sudo.github.io/nonuh-audiobook/icons/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://artbridgee-sudo.github.io/nonuh-audiobook/"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#EEF1EC" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="논어통독"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script>window.NONUH_APP=true;window.NONUH_LOCK={"salt": "iCcuhfIqhbxC4veyVaHzHw==", "iter": 250000}</script><title>논어통독 오디오북</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+TC:wght@500&display=swap">
+<style>
+/* Layout: 죽간(竹簡)을 펼친 듯한 한 줄 읽기 칸 + 위 제목줄 + 아래 재생 도크. 넓은 화면은 왼쪽 목차 고정. */
+:root{
+  --paper:#EEF1EC; --surface:#F8FAF6; --ink:#1B2320; --muted:#5B6863; --line:#D3DBD5;
+  --jade:#2D6A59; --jade-ink:#FFFFFF; --wash:rgba(45,106,89,.13); --slip:#D9CDA6; --slip-ink:#3B3320;
+  --shadow:0 -6px 24px rgba(27,35,32,.08);
+  --f-display:"Hahmlet","Gowun Batang","Noto Serif TC",serif;
+  --f-body:"Gowun Batang","Noto Serif TC","AppleMyungjo","Batang",serif;
+  --f-han:"Noto Serif TC","Gowun Batang",serif;
+  --f-ui:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --fs:19px; --top:52px; --dock:148px; --side:320px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
+  --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC;
+  --shadow:0 -6px 24px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
+  --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC;
+  --shadow:0 -6px 24px rgba(0,0,0,.35); color-scheme:dark}
+
+html{scroll-padding-top:calc(var(--top) + 24px)}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--jade);outline-offset:2px;border-radius:6px}
+.ico{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* 상단 제목줄 */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;height:var(--top);display:flex;align-items:center;gap:10px;
+  padding-inline:16px;background:var(--paper);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .tocbtn{display:flex;align-items:center;gap:8px;padding:8px 10px 8px 6px;border-radius:10px}
+.top .tocbtn:hover{background:var(--wash)}
+.brand{font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.02em;white-space:nowrap}
+.brand small{font-family:var(--f-han);font-weight:500;font-size:12px;color:var(--muted);margin-left:6px;letter-spacing:.12em}
+.where{flex:1;min-width:0;text-align:right;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tools{display:flex;gap:2px}
+.tools button{padding:7px 9px;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted)}
+.tools button:hover{background:var(--wash);color:var(--ink)}
+
+/* 목차 */
+.toc{position:fixed;z-index:40;top:0;bottom:0;left:0;width:min(88vw,var(--side));background:var(--surface);border-right:1px solid var(--line);
+  transform:translateX(-102%);transition:transform .28s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.toc.open{transform:none}
+.scrim{position:fixed;inset:0;z-index:35;background:rgba(10,14,12,.4)}
+.toc-head{padding:18px 18px 14px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.toc-head h2{margin:0;font-family:var(--f-display);font-size:20px;font-weight:700;text-wrap:balance}
+.toc-head .meta{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--jade)}
+.toc-list{overflow-y:auto;overscroll-behavior:contain;padding:6px 8px calc(24px + env(safe-area-inset-bottom,0px))}
+.grp{margin-top:10px}
+.grp-h{display:flex;align-items:baseline;gap:8px;padding:10px 10px 6px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.grp-h b{font-family:var(--f-display);font-size:15px;color:var(--ink);letter-spacing:0}
+.grp-h span.han{font-family:var(--f-han);font-weight:500;letter-spacing:.15em}
+.ent{width:100%;display:grid;grid-template-columns:44px 1fr auto;gap:8px;align-items:baseline;text-align:left;padding:9px 10px;border-radius:10px;font-size:14px}
+.ent:hover{background:var(--wash)}
+.ent .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px}
+.ent .tt{min-width:0}
+.ent .du{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
+.ent.done .no::after{content:" ✓";color:var(--jade)}
+.ent.on{background:var(--jade);color:var(--jade-ink)}
+.ent.on .no,.ent.on .du{color:inherit;opacity:.85}
+.ent.on.done .no::after{color:inherit}
+
+/* 본문 */
+main{max-width:40em;margin:0 auto;padding:28px 16px calc(var(--dock) + 64px + env(safe-area-inset-bottom,0px))}
+.reader{font-family:var(--f-body);font-size:var(--fs);line-height:1.95;word-break:keep-all;overflow-wrap:anywhere}
+.reader p{margin:0 0 1.05em}
+.s{border-radius:4px;transition:background-color .25s ease,box-shadow .25s ease;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.s:hover{background:var(--wash)}
+.s.cur{background:var(--wash);box-shadow:0 2px 0 0 var(--jade)}
+.fn{font-family:var(--f-ui);font-size:.62em;line-height:1;vertical-align:baseline;position:relative;top:-.6em;color:var(--jade);font-weight:600;padding:2px 4px;margin-left:1px;border-radius:4px}
+.fn:hover{background:var(--wash)}
+.part{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:8px 0 34px}
+.slip{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--f-han);font-size:20px;letter-spacing:.32em;line-height:1;
+  background:var(--slip);color:var(--slip-ink);padding:16px 10px;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.part-k{font-family:var(--f-display)}
+.part-k small{display:block;font-family:var(--f-ui);font-size:13px;color:var(--muted);letter-spacing:.12em;margin-bottom:4px}
+.part-k strong{font-size:30px;font-weight:700;line-height:1.2}
+h1.sec{font-family:var(--f-display);font-weight:700;font-size:1.32em;line-height:1.45;margin:0 0 1.3em;text-wrap:balance}
+h1.sec .no{display:block;font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--jade);letter-spacing:.14em;margin-bottom:6px}
+h2.sub{font-family:var(--f-display);font-weight:700;font-size:1.08em;margin:1.8em 0 .8em}
+.orig{font-family:var(--f-han);font-weight:500;font-size:.98em;line-height:1.9;color:var(--muted);margin:1.6em 0 .5em;padding:12px 16px;
+  border-left:3px solid var(--slip);background:var(--wash);background:color-mix(in srgb,var(--slip) 16%,transparent);border-radius:0 6px 6px 0;cursor:pointer}
+.orig .tag,.verse .vno{font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--jade);margin-right:8px;white-space:nowrap}
+.verse{font-weight:700;margin-bottom:1.6em!important}
+.sign{text-align:right;color:var(--muted)}
+ul.notes{list-style:none;margin:0 0 1.4em;padding:0;display:grid;gap:.5em}
+ul.notes li{padding-left:1em;text-indent:-1em}
+ul.notes li::before{content:"· ";color:var(--jade)}
+.cover{padding:28px 0 36px;margin-bottom:28px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.cover .han{font-family:var(--f-han);font-size:15px;letter-spacing:.5em;color:var(--muted)}
+.cover .ti{font-family:var(--f-display);font-weight:700;font-size:44px;line-height:1.15}
+.cover .st{font-family:var(--f-body);font-size:19px}
+.cover .by{font-family:var(--f-ui);font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.endnav{display:flex;justify-content:space-between;gap:12px;margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--f-ui);font-size:14px}
+.endnav button{display:grid;gap:2px;text-align:left;padding:10px 12px;border-radius:10px;max-width:48%}
+.endnav button:last-child{text-align:right;margin-left:auto}
+.endnav button:hover{background:var(--wash)}
+.endnav small{color:var(--muted);font-size:12px}
+
+/* 따라가기 알약 */
+.follow{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:calc(var(--dock) + 14px + env(safe-area-inset-bottom,0px));
+  background:var(--ink);color:var(--paper);font-size:13px;font-weight:600;padding:9px 16px;border-radius:99px;box-shadow:var(--shadow)}
+
+/* 각주 */
+.note{position:fixed;z-index:26;left:50%;transform:translateX(-50%);width:min(92vw,36em);bottom:calc(var(--dock) + 14px + env(safe-area-inset-bottom,0px));
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 44px 14px 16px;font-family:var(--f-body);font-size:15.5px;line-height:1.7}
+.note b{font-family:var(--f-ui);color:var(--jade);font-size:12px;letter-spacing:.08em;display:block;margin-bottom:2px}
+.note button{position:absolute;top:8px;right:8px;padding:6px;border-radius:8px;color:var(--muted)}
+
+/* 재생 도크 */
+.dock{position:fixed;z-index:30;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);box-shadow:var(--shadow);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:40em;margin:0 auto;display:grid;gap:6px}
+.now{display:flex;align-items:baseline;gap:8px;min-width:0;font-size:13.5px}
+.now .no{color:var(--jade);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.now .tt{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.now .st{color:var(--muted);font-size:12px;white-space:nowrap}
+.seek{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(var(--jade),var(--jade)) 0/var(--p,0%) 100% no-repeat,var(--line)}
+input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:var(--line)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:var(--jade)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--jade);margin-top:-5px;border:0}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--jade);border:0}
+.ctrl{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.ctrl .main{display:flex;align-items:center;gap:6px}
+.ctrl button{border-radius:12px;padding:8px;color:var(--ink)}
+.ctrl button:hover{background:var(--wash)}
+.ctrl .skip{position:relative}
+.ctrl .skip span{position:absolute;inset:0;display:grid;place-items:center;font-size:8.5px;font-weight:700;padding-top:2px}
+.play{width:54px;height:54px;border-radius:50%!important;background:var(--jade)!important;color:var(--jade-ink)!important;display:grid;place-items:center}
+.play .ico{width:26px;height:26px;fill:currentColor;stroke:none}
+.chip{font-size:12.5px;font-weight:600;padding:7px 10px!important;border-radius:99px!important;border:1px solid var(--line);color:var(--muted)!important;font-variant-numeric:tabular-nums;min-width:52px}
+.chip.on{border-color:var(--jade);color:var(--jade)!important}
+.msg{font-size:12.5px;color:#B3412E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .msg{color:#F09A85}}
+:root[data-theme="dark"] .msg{color:#F09A85}
+
+@media (min-width:1100px){
+  .toc{transform:none;top:calc(var(--top) + env(safe-area-inset-top,0px));bottom:calc(var(--dock) + env(safe-area-inset-bottom,0px));z-index:20}
+  .scrim{display:none}
+  .top .tocbtn{pointer-events:none}
+  .top .tocbtn .ico{display:none}
+  main,.dock-in{margin-left:max(calc(var(--side) + 40px),calc((100vw - 40em)/2))}
+  .follow,.note{left:calc(var(--side) + (100vw - var(--side))/2)}
+}
+@media (max-width:520px){
+  :root{--fs:18px}
+  .brand small,.where{display:none}
+  .tools{margin-left:auto}
+  .cover .ti{font-size:36px}
+  .ctrl .side{display:none}
+}
+/* 앱(설치형) 전용 */
+.appbox{display:grid;gap:10px;padding-top:4px}
+.abtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:600;background:var(--jade);color:var(--jade-ink)}
+.abtn.ghost{background:transparent;color:var(--jade);border:1px solid var(--jade)}
+.abtn[disabled]{opacity:.6;cursor:default}
+.save{display:grid;gap:6px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.save .row{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.save .row b{color:var(--ink);font-weight:600}
+.linkbtn{font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.ent.saved .du::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--jade);margin-left:6px;vertical-align:middle}
+.ent.on.saved .du::after{background:currentColor}
+.appnote{display:flex;align-items:center;gap:10px;margin:0 0 22px;padding:10px 8px 10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:13.5px}
+.appnote span{flex:1;min-width:0}
+.appnote .go{font-weight:600;color:var(--jade);white-space:nowrap;padding:6px 8px;border-radius:8px}
+.appnote .x{color:var(--muted);padding:6px;border-radius:8px}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(10,14,12,.45);display:grid;place-items:end center;padding:16px}
+.sheet-in{width:min(100%,30em);background:var(--surface);border-radius:16px;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));display:grid;gap:12px;box-shadow:var(--shadow)}
+.sheet-in h3{margin:0;font-family:var(--f-display);font-size:19px}
+.sheet-in ol{margin:0;padding-left:1.3em;display:grid;gap:8px;font-size:15px;line-height:1.6}
+.sheet-in p{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+.sheet-in kbd{font-family:var(--f-ui);font-size:13px;border:1px solid var(--line);border-radius:6px;padding:1px 6px;background:var(--paper)}
+.lock{position:fixed;inset:0;z-index:80;background:var(--paper);overflow-y:auto;display:grid;place-items:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.lock-in{width:min(100%,24em);display:grid;gap:14px;justify-items:center;text-align:center;word-break:keep-all}
+.lock-in img{width:88px;height:88px;border-radius:20px;box-shadow:0 6px 20px rgba(27,35,32,.18)}
+.lock-in h1{margin:6px 0 0;font-family:var(--f-display);font-size:28px;font-weight:700}
+.lock-in .by{font-size:14px;color:var(--muted);margin-top:-6px}
+.lock-in form{width:100%;display:grid;gap:10px;margin-top:10px;text-align:left}
+.lock-in label{font-size:13px;font-weight:600;color:var(--muted)}
+.lock-in input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.lock-in input:focus{outline:2px solid var(--jade);outline-offset:1px}
+.lock-in .lmsg{min-height:1.4em;font-size:13.5px;color:#B3412E}
+.lock-in .lstate{margin:8px 0 0;font-size:16px;line-height:1.6}
+.pwbox{width:100%;text-align:left;border-top:1px solid var(--line);padding-top:12px}
+.pwbox summary{cursor:pointer;font-size:14px;color:var(--muted);text-align:center;list-style:none}
+.pwbox summary::-webkit-details-marker{display:none}
+.pwbox summary::after{content:" ›"}
+.lock-in .hint{font-size:13px;color:var(--muted);line-height:1.6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lock-in .lmsg{color:#F09A85}}
+:root[data-theme="dark"] .lock-in .lmsg{color:#F09A85}
+@media (prefers-reduced-motion:reduce){.toc,.s{transition:none}}
+</style></head><body>
+
+<header class="top">
+  <button class="tocbtn" id="tocBtn" aria-label="목차 열기" aria-controls="toc" aria-expanded="false">
+    <svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    <span class="brand">논어통독<small>論語通讀</small></span>
+  </button>
+  <div class="where" id="where"></div>
+  <div class="tools">
+    <button id="fsDown" aria-label="글자 작게">가<sub>−</sub></button>
+    <button id="fsUp" aria-label="글자 크게">가<sup>+</sup></button>
+  </div>
+</header>
+
+<nav class="toc" id="toc" aria-label="목차">
+  <div class="toc-head">
+    <h2>목차</h2>
+    <div class="meta" id="tocMeta"></div>
+    <div class="bar" aria-hidden="true"><i id="tocBar"></i></div>
+    <div class="appbox" id="appBox" hidden>
+      <button class="abtn" id="installBtn" hidden><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>앱으로 설치하기</button>
+      <div class="save" id="saveBox">
+        <div class="row"><span>인터넷 없이 듣기</span><b id="saveTx"></b></div>
+        <div class="bar" aria-hidden="true"><i id="saveBar"></i></div>
+        <button class="abtn ghost" id="saveBtn">전체 저장</button>
+        <div class="row"><span id="saveMsg"></span><button class="linkbtn" id="clearBtn" hidden>저장 지우기</button></div>
+      </div>
+      <button class="linkbtn" id="forgetBtn" hidden>이 기기에서 비밀번호 지우기</button>
+    </div>
+  </div>
+  <div class="toc-list" id="tocList"></div>
+</nav>
+<div class="scrim" id="scrim" hidden></div>
+
+<main><div class="appnote" id="appNote" hidden><span id="appNoteTx"></span><button class="go" id="appNoteGo"></button><button class="x" id="appNoteX" aria-label="닫기"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><article class="reader" id="reader" lang="ko"></article></main>
+<div class="lock" id="lock" hidden><div class="lock-in">
+  <img id="lockImg" alt="" width="88" height="88">
+  <h1>논어통독 오디오북</h1>
+  <div class="by">진다청 지음 · 김태만 옮김</div>
+  <p class="lstate" id="lockState" role="status">여는 중입니다…</p>
+  <details class="pwbox" id="pwBox" hidden><summary>비밀번호로 열기</summary>
+  <form id="lockForm" autocomplete="on">
+    <label for="lockPw">비밀번호</label>
+    <input type="password" id="lockPw" name="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+    <button class="abtn" id="lockBtn" type="submit">열기</button>
+  </form></details>
+  <div class="lmsg" id="lockMsg" role="status"></div>
+  <p class="hint" id="lockHint" hidden></p>
+  <button class="abtn ghost" id="lockExt" type="button" hidden>Safari·Chrome으로 열기</button>
+</div></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetH" hidden><div class="sheet-in"><h3 id="sheetH">앱으로 설치하기</h3><div id="sheetBody"></div><button class="abtn" id="sheetX">확인</button></div></div>
+
+<button class="follow" id="follow" hidden>읽는 곳으로 돌아가기</button>
+<div class="note" id="note" role="dialog" aria-live="polite" hidden><b id="noteNo"></b><span id="noteTx"></span>
+  <button id="noteX" aria-label="각주 닫기"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+
+<section class="dock" aria-label="재생">
+  <div class="dock-in">
+    <div class="now"><span class="no" id="nowNo"></span><span class="tt" id="nowTt"></span><span class="st" id="nowSt"></span></div>
+    <div class="seek"><span id="tCur">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="재생 위치"><span id="tDur">0:00</span></div>
+    <div class="ctrl">
+      <button class="chip" id="rate" aria-label="재생 속도">1.0×</button>
+      <div class="main">
+        <button id="prev" aria-label="이전 장"><svg class="ico" viewBox="0 0 24 24"><path d="M6 5v14M19 6l-9 6 9 6z"/></svg></button>
+        <button class="skip" id="back" aria-label="15초 뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4h4"/></svg><span>15</span></button>
+        <button class="play" id="play" aria-label="재생"><svg class="ico" viewBox="0 0 24 24" id="playIco"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <button class="skip" id="fwd" aria-label="15초 앞으로"><svg class="ico" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4h-4"/></svg><span>15</span></button>
+        <button id="next" aria-label="다음 장"><svg class="ico" viewBox="0 0 24 24"><path d="M18 5v14M5 6l9 6-9 6z"/></svg></button>
+      </div>
+      <button class="chip" id="sleep" aria-label="취침 타이머">타이머</button>
+    </div>
+    <div class="msg" id="msg" hidden></div>
+  </div>
+</section>
+
+<script type="application/json" id="book-data">null</script>
+<script>
+function NONUH_BOOT(BOOK){
+'use strict';
+var T = BOOK.tracks;
+var $ = function(id){ return document.getElementById(id); };
+var audio = new Audio(); audio.preload = 'metadata';
+var KEY = 'nonuh-audiobook-v1';
+var st = {};
+try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { st = {}; }
+st.done = st.done || {};
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} }
+
+var RATES = [0.8, 1, 1.15, 1.3, 1.5, 1.75, 2];
+var FS = [16, 17, 18, 19, 20, 22, 24];
+var loadSeq = 0, srcReady = false, wantPlay = false;
+var cur = -1, sents = [], active = -1, follow = true, seeking = false, pendingTime = null, sleepAt = null, sleepEnd = false, sleepIdx = 0;
+var totalDur = T.reduce(function(a,t){ return a + t.dur; }, 0);
+var SAVED = new Set();
+
+function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function fmt(s){ s = Math.max(0, Math.floor(s||0)); var h = Math.floor(s/3600), m = Math.floor(s%3600/60), x = s%60;
+  return (h ? h + ':' + String(m).padStart(2,'0') : m) + ':' + String(x).padStart(2,'0'); }
+function hm(s){ var h = Math.floor(s/3600), m = Math.round(s%3600/60); return (h ? h + '시간 ' : '') + m + '분'; }
+function partInfo(t){ var m = /^제(\d+)편\s*「(.+?)\((.+?)\)」/.exec(t.partTitle || ''); return m ? {n:+m[1], k:m[2], h:m[3]} : null; }
+var PARTS = {};
+T.forEach(function(t){ if (t.partTitle) PARTS[t.part] = partInfo(t); });
+function label(t){ return t.num || ''; }
+function withNotes(s, notes){
+  return esc(s).replace(/\u0001(\d+)\u0001/g, function(_, n){ return notes && notes[n] ? '<button class="fn" data-n="' + n + '" aria-label="각주 ' + n + '">' + n + '</button>' : ''; });
+}
+
+/* ---------- 목차 ---------- */
+function buildToc(){
+  var html = '', last = null;
+  T.forEach(function(t, i){
+    var g = t.kind === 'body' ? 'p' + t.part : t.kind;
+    if (g !== last){
+      if (last !== null) html += '</div>';
+      var head = t.kind === 'front' ? '<b>앞부분</b>' : t.kind === 'back' ? '<b>뒷부분</b>'
+        : '제' + t.part + '편 <b>' + esc(PARTS[t.part] ? PARTS[t.part].k : '') + '</b><span class="han">' + esc(PARTS[t.part] ? PARTS[t.part].h : '') + '</span>';
+      html += '<div class="grp"><div class="grp-h">' + head + '</div>';
+      last = g;
+    }
+    html += '<button class="ent" data-i="' + i + '"><span class="no">' + esc(label(t)) + '</span><span class="tt">' + esc(t.title) + '</span><span class="du">' + fmt(t.dur) + '</span></button>';
+  });
+  html += '</div>';
+  $('tocList').innerHTML = html;
+}
+function paintToc(){
+  var heard = 0;
+  [].forEach.call($('tocList').querySelectorAll('.ent'), function(b){
+    var i = +b.dataset.i, t = T[i];
+    b.classList.toggle('on', i === cur);
+    b.classList.toggle('done', !!st.done[t.id]);
+    b.classList.toggle('saved', SAVED.has(t.file));
+    if (st.done[t.id] && i !== cur) heard += t.dur;
+  });
+  if (cur >= 0) heard += Math.min(audio.currentTime || 0, T[cur].dur);
+  var pct = Math.min(100, heard / totalDur * 100);
+  $('tocMeta').textContent = T.length + '개 장 · 전체 ' + hm(totalDur) + ' · ' + Math.round(pct) + '% 들음';
+  $('tocBar').style.width = pct.toFixed(1) + '%';
+}
+function openToc(on){
+  var wide = matchMedia('(min-width:1100px)').matches;
+  $('toc').classList.toggle('open', on);
+  $('scrim').hidden = !on || wide;
+  $('tocBtn').setAttribute('aria-expanded', on ? 'true' : 'false');
+  if (on){ var c = $('tocList').querySelector('.ent.on'); if (c) c.scrollIntoView({block:'center'}); }
+}
+
+/* ---------- 본문 ---------- */
+function render(i){
+  var t = T[i], h = '', k = 0, notesAll = {};
+  t.blocks.forEach(function(b){
+    var ts = b.ts || null;
+    function sent(s, j){ return ts ? '<span class="s" data-k="' + (k++) + '">' + withNotes(s, b.n) + '</span>' : withNotes(s, b.n); }
+    if (b.n) Object.keys(b.n).forEach(function(n){ notesAll[n] = b.n[n]; });
+    switch (b.t){
+      case 'cover':
+        h += '<div class="cover"><div class="han">論語通讀</div><div class="ti">' + sent(b.s[0]) + '</div><div class="st">' + esc(b.sub || '') + '</div><div class="by">' + (b.by || []).map(esc).map(function(x){ return '<span>' + x + '</span>'; }).join('') + '</div></div>';
+        if (ts && ts.length > 1) k++; // 낭독 문장 2개(제목, 지은이)를 표지 하나에 묶음
+        break;
+      case 'part':
+        var p = PARTS[b.num] || {k:b.name, h:''};
+        h += '<div class="part"><div class="slip" aria-hidden="true">' + esc(p.h) + '</div><div class="part-k"><small>제' + b.num + '편</small><strong>' + sent(p.k) + '</strong></div></div>';
+        break;
+      case 'h1':
+        h += '<h1 class="sec">' + (b.num ? '<span class="no">' + esc(b.num) + '</span>' : '') + sent(b.s[0]) + '</h1>'; break;
+      case 'h2':
+        h += '<h2 class="sub">' + sent(b.s[0]) + '</h2>'; break;
+      case 'orig':
+        var m = /^(\d+\.\d+)\s+/.exec(b.s[0]);
+        h += '<p class="orig" lang="zh-Hant" data-next="' + k + '"><span class="tag">' + (m ? '원문 ' + esc(m[1]) : '원문') + '</span>' + withNotes(m ? b.s[0].slice(m[0].length) : b.s[0], b.n) + '</p>'; break;
+      case 'verse':
+        h += '<p class="verse">' + b.s.map(function(s, j){
+          if (j === 0){ var mv = /^(\d+\.\d+)\s+/.exec(s); if (mv) return '<span class="vno">' + esc(mv[1]) + '</span>' + sent(s.slice(mv[0].length)); }
+          return sent(s); }).join(' ') + '</p>'; break;
+      case 'li':
+        h += '<ul class="notes"><li>' + b.s.map(sent).join(' ') + '</li></ul>'; break;
+      case 'sign':
+        h += '<p class="sign">' + b.s.map(sent).join(' ') + '</p>'; break;
+      default:
+        h += '<p>' + b.s.map(sent).join(' ') + '</p>';
+    }
+  });
+  var pv = T[i-1], nx = T[i+1];
+  h += '<nav class="endnav">' + (pv ? '<button data-go="' + (i-1) + '"><small>이전 장</small>' + esc((label(pv) + ' ' + pv.title).trim()) + '</button>' : '<span></span>')
+     + (nx ? '<button data-go="' + (i+1) + '"><small>다음 장</small>' + esc((label(nx) + ' ' + nx.title).trim()) + '</button>' : '') + '</nav>';
+  $('reader').innerHTML = h;
+  $('reader').dataset.notes = JSON.stringify(notesAll);
+  // 문장 시각 목록
+  var times = [];
+  t.blocks.forEach(function(b){ if (b.ts) b.ts.forEach(function(x){ times.push(x); }); });
+  var els = $('reader').querySelectorAll('.s');
+  sents = [];
+  for (var j = 0, e = 0; j < times.length; j++){
+    var el = els[e];
+    if (t.blocks[0].t === 'cover' && j === 1) { sents.push({t: times[j], el: els[0]}); continue; }
+    sents.push({t: times[j], el: el}); e++;
+  }
+  active = -1;
+}
+
+/* ---------- 재생 ---------- */
+function load(i, time, autoplay){
+  if (i < 0 || i >= T.length) return;
+  var t = T[i];
+  cur = i;
+  render(i);
+  var seq = ++loadSeq;
+  srcReady = false; wantPlay = !!autoplay;
+  setSource(t).then(function(){
+    if (seq !== loadSeq) return;
+    srcReady = true;
+    if (wantPlay) play();
+    if (window.NONUH_DECRYPT && T[i + 1]) window.NONUH_DECRYPT(T[i + 1].file, true).catch(function(){});
+  }).catch(function(){ if (seq === loadSeq) showMsg('음성 파일을 불러오지 못했습니다. 인터넷 연결을 확인한 뒤 재생 버튼을 다시 눌러 주세요.'); });
+  pendingTime = time || 0;
+  audio.playbackRate = RATES[st.rate == null ? 1 : st.rate];
+  $('nowNo').textContent = label(t) || (t.kind === 'front' ? '앞부분' : '뒷부분');
+  $('nowTt').textContent = t.title;
+  $('nowSt').textContent = t.kind === 'body' && PARTS[t.part] ? '제' + t.part + '편 ' + PARTS[t.part].k : '';
+  $('where').textContent = (t.kind === 'body' && PARTS[t.part] ? '제' + t.part + '편 ' + PARTS[t.part].k + ' · ' : '') + t.title;
+  $('tDur').textContent = fmt(t.dur);
+  st.track = t.id; st.time = pendingTime; save();
+  paintToc();
+  setSeek(pendingTime);
+  $('msg').hidden = true;
+  if ('mediaSession' in navigator && window.MediaMetadata){
+    try { navigator.mediaSession.metadata = new MediaMetadata({title: ((label(t) + ' ') + t.title).trim(), artist: '진다청 지음 · 김태만 옮김', album: '논어통독'}); } catch(e) {}
+  }
+  follow = true; $('follow').hidden = true;
+  if (time > 0) { sync(time, true); } else { window.scrollTo(0, 0); }
+  if (!window.NONUH_LOCK) { try { if (location.hash.slice(1) !== t.id) history.replaceState(null, '', '#' + t.id); } catch(e) {} }
+}
+function setSource(t){
+  if (!window.NONUH_DECRYPT){ audio.src = t.file; return Promise.resolve(); }
+  return window.NONUH_DECRYPT(t.file).then(function(u){ audio.src = u; });
+}
+function play(){
+  if (!srcReady){ wantPlay = true; try { var q = audio.play(); if (q && q.catch) q.catch(function(){}); } catch(e) {} showMsg('음성을 여는 중입니다…'); return; }
+  $('msg').hidden = true;
+  var p = audio.play(); if (p && p.catch) p.catch(function(err){ if (err && err.name !== 'AbortError') showMsg('재생을 시작하지 못했습니다. 재생 버튼을 다시 눌러 주세요.'); }); }
+function toggle(){ if (audio.paused || !srcReady) { if (!srcReady && wantPlay) { wantPlay = false; $('msg').hidden = true; return; } play(); } else audio.pause(); }
+function showMsg(s){ $('msg').textContent = s; $('msg').hidden = false; }
+function setPlayIcon(){
+  var playing = !audio.paused;
+  $('playIco').innerHTML = playing ? '<path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z"/>' : '<path d="M8 5.5v13l11-6.5z"/>';
+  $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
+}
+function setSeek(t){
+  var d = T[cur] ? (audio.duration || T[cur].dur) : 1;
+  var v = Math.round(t / d * 1000);
+  $('seek').value = v; $('seek').style.setProperty('--p', (v/10) + '%');
+  $('tCur').textContent = fmt(t);
+}
+function idxAt(t){
+  var lo = 0, hi = sents.length - 1, r = 0;
+  while (lo <= hi){ var m = (lo + hi) >> 1; if (sents[m].t <= t + 0.05){ r = m; lo = m + 1; } else hi = m - 1; }
+  return r;
+}
+function sync(t, jump){
+  if (!sents.length) return;
+  var i = idxAt(t);
+  if (i === active && !jump) return;
+  if (active >= 0 && sents[active] && sents[active].el) sents[active].el.classList.remove('cur');
+  active = i;
+  var el = sents[i].el;
+  if (!el) return;
+  el.classList.add('cur');
+  if (follow || jump) reveal(el, jump);
+}
+function reveal(el, instant){
+  var r = el.getBoundingClientRect(), top = $('reader').ownerDocument.defaultView.innerHeight;
+  var dockH = document.querySelector('.dock').offsetHeight, topH = document.querySelector('.top').offsetHeight;
+  var vis = top - dockH;
+  if (r.top < topH + 30 || r.bottom > vis - 40 || instant){
+    var y = window.scrollY + r.top - topH - (vis - topH) * 0.3;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top: Math.max(0, y), behavior: instant || reduce ? 'auto' : 'smooth'});
+  }
+}
+
+audio.addEventListener('loadedmetadata', function(){
+  if (pendingTime){ try { audio.currentTime = pendingTime; } catch(e) {} }
+  pendingTime = null;
+  $('tDur').textContent = fmt(audio.duration);
+});
+var lastSave = 0;
+audio.addEventListener('timeupdate', function(){
+  if (audio.seeking) return;
+  var t = audio.currentTime;
+  if (!seeking) setSeek(t);
+  sync(t);
+  if (sleepAt && Date.now() >= sleepAt){ audio.pause(); clearSleep(); }
+  if (Date.now() - lastSave > 4000){ lastSave = Date.now(); st.time = t; save(); paintToc(); }
+});
+audio.addEventListener('play', function(){ setPlayIcon(); tick(); if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing'; });
+audio.addEventListener('pause', function(){ setPlayIcon(); st.time = audio.currentTime; save(); if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused'; });
+audio.addEventListener('ended', function(){
+  st.done[T[cur].id] = 1; save();
+  if (sleepEnd){ clearSleep(); setPlayIcon(); paintToc(); return; }
+  if (cur < T.length - 1) load(cur + 1, 0, true); else { paintToc(); setPlayIcon(); }
+});
+audio.addEventListener('error', function(){ if (!srcReady) return; showMsg('음성 파일을 불러오지 못했습니다. 인터넷 연결을 확인한 뒤 재생 버튼을 다시 눌러 주세요.'); setPlayIcon(); });
+function tick(){ if (audio.paused) return; if (!audio.seeking) sync(audio.currentTime); requestAnimationFrame(tick); }
+
+/* 컨트롤 */
+$('play').onclick = toggle;
+$('back').onclick = function(){ audio.currentTime = Math.max(0, audio.currentTime - 15); sync(audio.currentTime, true); };
+$('fwd').onclick = function(){ audio.currentTime = Math.min((audio.duration || 1e9) - 0.5, audio.currentTime + 15); sync(audio.currentTime, true); };
+$('prev').onclick = function(){ if (audio.currentTime > 5) { audio.currentTime = 0; sync(0, true); } else load(cur - 1, 0, !audio.paused); };
+$('next').onclick = function(){ load(cur + 1, 0, !audio.paused); };
+function paintRate(){ var r = RATES[st.rate == null ? 1 : st.rate]; $('rate').textContent = (r === 1 ? '1.0' : String(r)) + '×'; $('rate').classList.toggle('on', r !== 1); }
+$('rate').onclick = function(){ st.rate = ((st.rate == null ? 1 : st.rate) + 1) % RATES.length; audio.playbackRate = RATES[st.rate]; paintRate(); save(); };
+var SLEEPS = [0, 15, 30, 60, -1];
+function clearSleep(){ sleepAt = null; sleepEnd = false; sleepIdx = 0; paintSleep(); }
+function paintSleep(){
+  var b = $('sleep');
+  if (sleepEnd){ b.textContent = '이 장 끝'; b.classList.add('on'); }
+  else if (sleepAt){ b.textContent = Math.max(1, Math.ceil((sleepAt - Date.now())/60000)) + '분'; b.classList.add('on'); }
+  else { b.textContent = '타이머'; b.classList.remove('on'); }
+}
+$('sleep').onclick = function(){
+  sleepIdx = (sleepIdx + 1) % SLEEPS.length;
+  var v = SLEEPS[sleepIdx];
+  sleepAt = v > 0 ? Date.now() + v * 60000 : null; sleepEnd = v === -1;
+  paintSleep();
+};
+setInterval(function(){ if (sleepAt) paintSleep(); }, 20000);
+
+var seekEl = $('seek');
+seekEl.addEventListener('input', function(){ seeking = true; var d = audio.duration || T[cur].dur; var t = seekEl.value / 1000 * d; $('tCur').textContent = fmt(t); seekEl.style.setProperty('--p', (seekEl.value/10) + '%'); });
+seekEl.addEventListener('change', function(){ var d = audio.duration || T[cur].dur; var t = seekEl.value / 1000 * d; seeking = false; try { audio.currentTime = t; } catch(e) {} sync(t, true); });
+
+$('reader').addEventListener('click', function(e){
+  var fn = e.target.closest('.fn');
+  if (fn){ e.stopPropagation(); var notes = JSON.parse($('reader').dataset.notes || '{}'); $('noteNo').textContent = '각주 ' + fn.dataset.n; $('noteTx').textContent = notes[fn.dataset.n] || ''; $('note').hidden = false; return; }
+  var go = e.target.closest('[data-go]');
+  if (go){ load(+go.dataset.go, 0, !audio.paused); return; }
+  var s = e.target.closest('.s'), k = null;
+  if (s) k = +s.dataset.k;
+  else { var o = e.target.closest('.orig'); if (o) k = +o.dataset.next; }
+  if (k == null || !sents.length) return;
+  // .s 의 data-k 는 화면상의 순서. 표지는 낭독 두 문장을 하나로 묶었으므로 보정.
+  var idx = sents.findIndex(function(x){ return x.el && +x.el.dataset.k === k; });
+  if (idx < 0) idx = Math.min(k, sents.length - 1);
+  try { audio.currentTime = sents[idx].t; } catch(err) {}
+  follow = true; $('follow').hidden = true;
+  sync(sents[idx].t, false);
+  if (audio.paused) play();
+});
+$('noteX').onclick = function(){ $('note').hidden = true; };
+
+function userScrolled(){ if (!audio.paused && follow){ follow = false; $('follow').hidden = false; } }
+window.addEventListener('wheel', function(e){ if (!e.target.closest('.dock,.toc')) userScrolled(); }, {passive:true});
+window.addEventListener('touchmove', function(e){ if (!e.target.closest('.dock,.toc')) userScrolled(); }, {passive:true});
+$('follow').onclick = function(){ follow = true; $('follow').hidden = true; if (active >= 0) reveal(sents[active].el, false); };
+
+$('tocBtn').onclick = function(){ openToc(!$('toc').classList.contains('open')); };
+$('scrim').onclick = function(){ openToc(false); };
+$('tocList').addEventListener('click', function(e){
+  var b = e.target.closest('.ent'); if (!b) return;
+  var i = +b.dataset.i;
+  if (i !== cur) load(i, 0, !audio.paused);
+  if (!matchMedia('(min-width:1100px)').matches) openToc(false);
+});
+
+function applyFs(){ if (st.fs == null) return; document.documentElement.style.setProperty('--fs', FS[st.fs] + 'px'); }
+$('fsUp').onclick = function(){ st.fs = Math.min(FS.length - 1, (st.fs == null ? 3 : st.fs) + 1); applyFs(); save(); };
+$('fsDown').onclick = function(){ st.fs = Math.max(0, (st.fs == null ? 3 : st.fs) - 1); applyFs(); save(); };
+
+document.addEventListener('keydown', function(e){
+  if (e.target.closest && e.target.closest('input,textarea')) return;
+  if (e.key === ' ' && (e.target === document.body || !e.target.closest('button'))){ e.preventDefault(); toggle(); }
+  else if (e.key === 'ArrowLeft') $('back').click();
+  else if (e.key === 'ArrowRight') $('fwd').click();
+  else if (e.key === 'Escape'){ $('note').hidden = true; if (!matchMedia('(min-width:1100px)').matches) openToc(false); }
+});
+
+if ('mediaSession' in navigator){
+  var ms = navigator.mediaSession;
+  var set = function(a, f){ try { ms.setActionHandler(a, f); } catch(e) {} };
+  set('play', play); set('pause', function(){ audio.pause(); });
+  set('seekbackward', function(){ $('back').click(); }); set('seekforward', function(){ $('fwd').click(); });
+  set('previoustrack', function(){ $('prev').click(); }); set('nexttrack', function(){ $('next').click(); });
+  set('seekto', function(d){ if (d && d.seekTime != null){ audio.currentTime = d.seekTime; sync(d.seekTime, true); } });
+}
+
+/* 시작 */
+buildToc(); applyFs(); paintRate(); paintSleep(); setPlayIcon();
+var hash = location.hash.slice(1), start = 0, startT = 0;
+var hi = T.findIndex(function(t){ return t.id === hash; });
+if (hi >= 0){ start = hi; startT = (st.track === hash) ? (st.time || 0) : 0; }
+else if (st.track){ var si = T.findIndex(function(t){ return t.id === st.track; }); if (si >= 0){ start = si; startT = st.time || 0; } }
+load(start, startT, false);
+if (matchMedia('(min-width:1100px)').matches) openToc(true);
+
+/* ---------- 설치형 앱 (배포판에서만) ---------- */
+if (!window.NONUH_APP) return;
+var ua = navigator.userAgent || '';
+var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+var isAndroid = /Android/i.test(ua);
+var inKakao = /KAKAOTALK/i.test(ua);
+var inApp = inKakao || /NAVER\(inapp|FBAN|FBAV|Instagram|Line\//i.test(ua);
+var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+var deferred = null;
+var AUDIO_CACHE = 'nonuh-audio-v1';
+var totalBytes = T.reduce(function(a,t){ return a + (t.size || 0); }, 0);
+function mb(b){ return Math.round(b / 1048576) + 'MB'; }
+
+$('appBox').hidden = false;
+$('installBtn').hidden = standalone;
+
+function openExternal(){
+  var u = location.href;
+  location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(u);
+}
+function sheet(html){ $('sheetBody').innerHTML = html; $('sheet').hidden = false; }
+$('sheetX').onclick = function(){ $('sheet').hidden = true; };
+$('sheet').addEventListener('click', function(e){ if (e.target === $('sheet')) $('sheet').hidden = true; });
+
+function installGuide(){
+  if (deferred){
+    deferred.prompt();
+    deferred.userChoice.then(function(){ deferred = null; });
+    return;
+  }
+  if (inApp){
+    sheet('<p>지금은 ' + (inKakao ? '카카오톡' : '앱') + ' 안의 브라우저로 열려 있어서 설치가 되지 않습니다. 아래 버튼을 누르거나, 오른쪽 위(또는 아래) 메뉴에서 <b>다른 브라우저로 열기</b>를 고른 뒤 다시 설치해 주세요.</p>'
+      + (inKakao ? '<button class="abtn ghost" id="extBtn">' + (isIOS ? 'Safari' : 'Chrome') + '로 열기</button>' : ''));
+    var eb = $('extBtn'); if (eb) eb.onclick = openExternal;
+    return;
+  }
+  if (isIOS){
+    sheet('<ol><li>Safari 아래쪽(아이패드는 위쪽)의 <kbd>공유</kbd> 버튼을 누릅니다.</li><li>목록을 올려 <kbd>홈 화면에 추가</kbd>를 누릅니다.</li><li>오른쪽 위 <kbd>추가</kbd>를 누르면 홈 화면에 “논어통독” 아이콘이 생깁니다.</li></ol><p>Safari가 아닌 다른 앱에서 열었다면 먼저 Safari로 열어 주세요.</p>');
+    return;
+  }
+  if (isAndroid){
+    sheet('<ol><li>Chrome 오른쪽 위 <kbd>⋮</kbd> 메뉴를 누릅니다.</li><li><kbd>앱 설치</kbd> 또는 <kbd>홈 화면에 추가</kbd>를 누릅니다.</li><li>홈 화면에 “논어통독” 아이콘이 생깁니다.</li></ol><p>삼성 인터넷은 아래 메뉴 → <kbd>현재 페이지 추가</kbd> → <kbd>홈 화면</kbd>입니다.</p>');
+    return;
+  }
+  sheet('<ol><li>Chrome이나 Edge 주소창 오른쪽의 설치 아이콘을 누르거나, 메뉴에서 <kbd>앱 설치</kbd>를 고릅니다.</li><li>설치하면 바탕화면이나 시작 메뉴에서 바로 열 수 있습니다.</li></ol>');
+}
+$('installBtn').onclick = installGuide;
+window.addEventListener('beforeinstallprompt', function(e){ e.preventDefault(); deferred = e; });
+window.addEventListener('appinstalled', function(){ $('installBtn').hidden = true; $('appNote').hidden = true; });
+
+/* 첫 화면 안내 줄 */
+var noteOff = false;
+try { noteOff = localStorage.getItem('nonuh-note-off') === '1'; } catch(e) {}
+if (!standalone && (!noteOff || inApp)){
+  $('appNoteTx').textContent = inApp ? '카카오톡 안에서 열렸습니다. 앱 설치와 저장은 Safari나 Chrome에서 됩니다.' : '홈 화면에 설치하면 앱처럼 바로 열 수 있습니다.';
+  $('appNoteGo').textContent = inKakao ? '브라우저로 열기' : '설치 방법';
+  $('appNoteGo').onclick = inKakao ? openExternal : installGuide;
+  $('appNote').hidden = false;
+}
+$('appNoteX').onclick = function(){ $('appNote').hidden = true; try { localStorage.setItem('nonuh-note-off', '1'); } catch(e) {} };
+
+/* 서비스워커와 오프라인 저장 */
+var canSave = false, saving = false, stopFlag = false;
+function paintSave(msg){
+  var bytes = 0;
+  T.forEach(function(t){ if (SAVED.has(t.file)) bytes += t.size || 0; });
+  $('saveTx').textContent = SAVED.size + ' / ' + T.length + '장 · ' + mb(bytes);
+  $('saveBar').style.width = (totalBytes ? bytes / totalBytes * 100 : 0).toFixed(1) + '%';
+  var all = SAVED.size === T.length;
+  $('saveBtn').textContent = saving ? '저장 멈추기' : all ? '모두 저장됨' : (SAVED.size ? '나머지 저장 (' + mb(totalBytes - bytes) + ')' : '전체 저장 (' + mb(totalBytes) + ')');
+  $('saveBtn').disabled = !canSave || (all && !saving);
+  $('clearBtn').hidden = saving || !SAVED.size;
+  if (msg != null) $('saveMsg').textContent = msg;
+  paintToc();
+}
+function refreshSaved(){
+  return caches.open(AUDIO_CACHE).then(function(c){ return c.keys(); }).then(function(keys){
+    SAVED = new Set(keys.map(function(r){ var m = /audio\/[^/?#]+\.mp3/.exec(r.url); return m ? m[0] : ''; }));
+  }).catch(function(){});
+}
+function saveAll(){
+  if (saving){ stopFlag = true; return; }
+  saving = true; stopFlag = false;
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch(e) {}
+  paintSave('저장하는 중입니다. 화면을 켜 둔 채 기다려 주세요.');
+  var todo = T.filter(function(t){ return !SAVED.has(t.file); });
+  var i = 0, failed = null;
+  caches.open(AUDIO_CACHE).then(function(c){
+    function worker(){
+      if (stopFlag || failed || i >= todo.length) return Promise.resolve();
+      var t = todo[i++];
+      return fetch(t.file, {cache: 'no-store'}).then(function(r){
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return c.put(t.file, r);
+      }).then(function(){ SAVED.add(t.file); paintSave(); }).catch(function(err){ failed = err; }).then(worker);
+    }
+    return Promise.all([worker(), worker(), worker()]);
+  }).then(function(){
+    saving = false;
+    if (failed){
+      var q = failed && (failed.name === 'QuotaExceededError' || /quota/i.test(failed.message || ''));
+      paintSave(q ? '기기 저장 공간이 부족해 일부만 저장했습니다.' : '인터넷이 끊겨 멈췄습니다. 다시 누르면 이어서 저장합니다.');
+    } else paintSave(stopFlag ? '저장을 멈췄습니다. 저장한 장은 인터넷 없이 들을 수 있습니다.' : SAVED.size === T.length ? '모두 저장했습니다. 인터넷 없이 들을 수 있습니다.' : '');
+  });
+}
+$('saveBtn').onclick = saveAll;
+$('clearBtn').onclick = function(){
+  caches.delete(AUDIO_CACHE).then(function(){ SAVED = new Set(); paintSave('저장한 음성을 지웠습니다.'); });
+};
+
+var swOk = false;
+try { swOk = 'serviceWorker' in navigator && 'caches' in window && /^https?:$/.test(location.protocol); } catch(e) {}
+if (isIOS && !standalone) $('saveMsg').textContent = '아이폰은 홈 화면에 설치한 뒤, 설치한 앱 안에서 저장해 주세요.';
+if (swOk){
+  navigator.serviceWorker.register('sw.js').then(function(){ return navigator.serviceWorker.ready; }).then(function(){
+    canSave = true;
+    return refreshSaved();
+  }).then(function(){ paintSave(); }).catch(function(){ $('saveBox').hidden = true; });
+  paintSave();
+} else {
+  $('saveBox').hidden = true;
+}
+}
+(function(){
+  var txt = (document.getElementById('book-data').textContent || '').trim();
+  if (!window.NONUH_LOCK){ if (txt && txt !== 'null') NONUH_BOOT(JSON.parse(txt)); return; }
+
+  /* ---------- 비밀번호 잠금 (배포판) ---------- */
+  var L = window.NONUH_LOCK, KEYSTORE = 'nonuh-key-v1', AUDIO_CACHE = 'nonuh-audio-v1';
+  var $ = function(id){ return document.getElementById(id); };
+  var lock = $('lock'), form = $('lockForm'), pw = $('lockPw'), btn = $('lockBtn'), msg = $('lockMsg'), state = $('lockState');
+  var ua = navigator.userAgent || '';
+  lock.hidden = false;
+  $('lockImg').src = 'icons/icon-192.png';
+  if (/KAKAOTALK/i.test(ua)){
+    $('lockExt').hidden = false;
+    $('lockExt').onclick = function(){ location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href); };
+  }
+  var subtle = window.crypto && window.crypto.subtle;
+  if (!subtle){ state.textContent = '이 브라우저에서는 열 수 없습니다. 최신 Safari나 Chrome으로 열어 주세요.'; return; }
+
+  function b64d(s){ var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function b64e(buf){ var u = new Uint8Array(buf), s = ''; for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s); }
+  function b64urlD(s){ s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; return b64d(s); }
+  function b64urlE(buf){ return b64e(buf).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function needInput(text){
+    state.textContent = text;
+    $('pwBox').hidden = false;
+    var h = $('lockHint'); h.hidden = false;
+    h.textContent = '받은 링크를 누르면 바로 열립니다. 링크를 못 찾으시면 보내 준 분께 다시 받아 주세요.';
+  }
+  function dec(key, buf){ return subtle.decrypt({name: 'AES-GCM', iv: new Uint8Array(buf, 0, 12)}, key, new Uint8Array(buf, 12)); }
+  var dataP = null;
+  function getData(){
+    if (!dataP) dataP = fetch('data.bin').then(function(r){ if (!r.ok) throw new TypeError('HTTP ' + r.status); return r.arrayBuffer(); });
+    dataP.catch(function(){ dataP = null; });
+    return dataP;
+  }
+  function derive(pass){
+    return subtle.importKey('raw', new TextEncoder().encode(pass.trim().normalize('NFC')), 'PBKDF2', false, ['deriveKey']).then(function(base){
+      return subtle.deriveKey({name: 'PBKDF2', salt: b64d(L.salt), iterations: L.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, true, ['decrypt']);
+    });
+  }
+  function installDecrypt(key){
+    var urls = {}, order = [];
+    window.NONUH_DECRYPT = function(file){
+      if (urls[file]) return urls[file];
+      var p = (('caches' in window) ? caches.open(AUDIO_CACHE).then(function(c){ return c.match(file); }).catch(function(){ return null; }) : Promise.resolve(null))
+        .then(function(hit){ return hit || fetch(file).then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r; }); })
+        .then(function(r){ return r.arrayBuffer(); })
+        .then(function(buf){ return dec(key, buf); })
+        .then(function(plain){ return URL.createObjectURL(new Blob([plain], {type: 'audio/mpeg'})); });
+      urls[file] = p; order.push(file);
+      p.catch(function(){ if (urls[file] === p) delete urls[file]; });
+      while (order.length > 4){
+        var old = order.shift(), op = urls[old];
+        delete urls[old];
+        if (op) op.then(function(u){ setTimeout(function(){ URL.revokeObjectURL(u); }, 30000); }, function(){});
+      }
+      return p;
+    };
+  }
+  function open(key, remember){
+    return getData().then(function(buf){ return dec(key, buf); }).then(function(plain){
+      var book = JSON.parse(new TextDecoder().decode(plain));
+      subtle.exportKey('raw', key).then(function(raw){
+        if (remember) { try { localStorage.setItem(KEYSTORE, b64e(raw)); } catch(e) {} }
+        // 홈 화면에 추가할 때 열쇠가 함께 저장되도록 주소에 남겨 둠
+        try { history.replaceState(null, '', location.pathname + location.search + '#k=' + b64urlE(raw)); } catch(e) {}
+      });
+      installDecrypt(key);
+      lock.hidden = true;
+      var fb = $('forgetBtn');
+      fb.hidden = false;
+      fb.onclick = function(){ try { localStorage.removeItem(KEYSTORE); } catch(e) {} location.reload(); };
+      NONUH_BOOT(book);
+    });
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!pw.value.trim()) return;
+    btn.disabled = true; msg.textContent = '확인하는 중입니다…';
+    derive(pw.value).then(function(k){ return open(k, true); }).catch(function(err){
+      btn.disabled = false;
+      msg.textContent = (err && err.name === 'OperationError') ? '비밀번호가 맞지 않습니다. 다시 확인해 주세요.' : '열지 못했습니다. 인터넷 연결을 확인한 뒤 다시 눌러 주세요.';
+      $('pwBox').open = true;
+      try { pw.select(); } catch(e2) {}
+    });
+  });
+  function tryKey(raw, remember){
+    return subtle.importKey('raw', raw, {name: 'AES-GCM'}, true, ['decrypt']).then(function(k){ return open(k, remember); });
+  }
+  var hm = /(?:^#|&)k=([A-Za-z0-9_-]{40,})/.exec(location.hash);
+  var saved = null;
+  try { saved = localStorage.getItem(KEYSTORE); } catch(e) {}
+  var first = hm ? tryKey(b64urlD(hm[1]), true) : saved ? tryKey(b64d(saved), false) : Promise.reject({name: 'NoKey'});
+  first.catch(function(err){
+    if (hm && saved){ return tryKey(b64d(saved), false); }   // 링크가 옛것이면 기기에 기억된 열쇠로
+    throw err;
+  }).catch(function(err){
+    if (err && err.name === 'NoKey') needInput('받은 링크를 눌러서 열어 주세요.');
+    else if (err && err.name === 'OperationError'){
+      try { localStorage.removeItem(KEYSTORE); } catch(e) {}
+      needInput('링크가 바뀌었거나 잘못되었습니다. 보내 준 분께 새 링크를 받아 주세요.');
+    } else needInput('열지 못했습니다. 인터넷 연결을 확인한 뒤 링크를 다시 눌러 주세요.');
+  });
+})();
+</script>
+</body></html>
