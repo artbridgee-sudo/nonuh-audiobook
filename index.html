@@ -7,7 +7,7 @@
 :root{
   --paper:#EEF1EC; --surface:#F8FAF6; --ink:#1B2320; --muted:#5B6863; --line:#D3DBD5;
   --jade:#2D6A59; --jade-ink:#FFFFFF; --wash:rgba(45,106,89,.13); --slip:#D9CDA6; --slip-ink:#3B3320;
-  --shadow:0 -6px 24px rgba(27,35,32,.08);
+  --shadow:0 -6px 24px rgba(27,35,32,.08); --bad:#B3412E;
   --f-display:"Hahmlet","Gowun Batang","Noto Serif TC",serif;
   --f-body:"Gowun Batang","Noto Serif TC","AppleMyungjo","Batang",serif;
   --f-han:"Noto Serif TC","Gowun Batang",serif;
@@ -17,11 +17,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
   --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC;
-  --shadow:0 -6px 24px rgba(0,0,0,.35); color-scheme:dark}}
+  --shadow:0 -6px 24px rgba(0,0,0,.35); --bad:#F09A85; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#111614; --surface:#18201D; --ink:#E2E7E3; --muted:#93A29C; --line:#2B3531;
   --jade:#7CC3AD; --jade-ink:#0E1513; --wash:rgba(124,195,173,.17); --slip:#5C5236; --slip-ink:#F1E8CC;
-  --shadow:0 -6px 24px rgba(0,0,0,.35); color-scheme:dark}
+  --shadow:0 -6px 24px rgba(0,0,0,.35); --bad:#F09A85; color-scheme:dark}
 
 html{scroll-padding-top:calc(var(--top) + 24px)}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
@@ -139,9 +139,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .play .ico{width:26px;height:26px;fill:currentColor;stroke:none}
 .chip{font-size:12.5px;font-weight:600;padding:7px 10px!important;border-radius:99px!important;border:1px solid var(--line);color:var(--muted)!important;font-variant-numeric:tabular-nums;min-width:52px}
 .chip.on{border-color:var(--jade);color:var(--jade)!important}
-.msg{font-size:12.5px;color:#B3412E}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .msg{color:#F09A85}}
-:root[data-theme="dark"] .msg{color:#F09A85}
+.msg{font-size:12.5px;color:var(--bad)}
 
 @media (min-width:1100px){
   .toc{transform:none;top:calc(var(--top) + env(safe-area-inset-top,0px));bottom:calc(var(--dock) + env(safe-area-inset-bottom,0px));z-index:20}
@@ -197,6 +195,51 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .lock-in .hint{font-size:13px;color:var(--muted);line-height:1.6}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lock-in .lmsg{color:#F09A85}}
 :root[data-theme="dark"] .lock-in .lmsg{color:#F09A85}
+/* 퀴즈 */
+.tools .qzb{color:var(--jade);border:1px solid var(--jade);padding:5px 10px;margin-right:4px}
+.quiz{position:fixed;inset:0;z-index:70;background:var(--paper);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.qz-top{display:flex;align-items:center;gap:6px;min-height:52px;padding-inline:8px 10px;border-bottom:1px solid var(--line);flex:none}
+.qz-top b{flex:1;font-family:var(--f-display);font-size:17px;font-weight:700}
+.qz-top .pg{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.qz-top button{padding:8px;border-radius:10px;color:var(--muted)}
+.qz-top button:hover{background:var(--wash)}
+.qz-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:22px 16px calc(32px + env(safe-area-inset-bottom,0px))}
+.qz-wrap{max-width:34em;margin:0 auto;display:grid;gap:16px}
+.qz-intro{font-family:var(--f-body);font-size:16px;line-height:1.75;color:var(--muted);margin:0;word-break:keep-all}
+#qzAfter{display:grid;gap:12px}
+#qzAfter:empty{display:none}
+.qz-rounds{display:grid;gap:10px}
+.qz-round{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.qz-round:hover{border-color:var(--jade)}
+.qz-han{width:46px;height:46px;display:grid;place-items:center;border-radius:6px;background:var(--slip);color:var(--slip-ink);font-family:var(--f-han);font-size:24px}
+.qz-round b{display:block;font-family:var(--f-display);font-size:17px}
+.qz-round small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.qz-round .best{font-size:12.5px;color:var(--jade);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.qz-meta{font-size:13px;font-weight:600;color:var(--jade);letter-spacing:.04em}
+.qz-o{font-family:var(--f-han);font-weight:500;font-size:24px;line-height:1.6;letter-spacing:.04em;padding:12px 16px;border-left:3px solid var(--slip);background:var(--wash);border-radius:0 8px 8px 0;margin:0;word-break:keep-all}
+.qz-text{font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.5;margin:0;text-wrap:balance;word-break:keep-all}
+.qz-opts{display:grid;gap:10px}
+.qz-opt{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center;min-height:58px;padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);text-align:left;font-size:17px;line-height:1.45;word-break:keep-all}
+.qz-opt .k{font-weight:600;color:var(--muted);font-size:18px}
+.qz-opt:not([disabled]):hover{border-color:var(--jade)}
+.qz-opt[disabled]{cursor:default}
+.qz-opt.ok{border-color:var(--jade);background:var(--wash)}
+.qz-opt.ok .k{color:var(--jade)}
+.qz-opt.ng{border-color:var(--bad)}
+.qz-opt.ng .k{color:var(--bad)}
+.qz-opt.dim{opacity:.5}
+.qz-ex{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-body);font-size:16px;line-height:1.75;word-break:keep-all}
+.qz-ex b{display:block;font-family:var(--f-ui);font-size:15px;margin-bottom:4px}
+.qz-ex b.good{color:var(--jade)} .qz-ex b.bad{color:var(--bad)}
+.qz-row{display:flex;gap:10px;flex-wrap:wrap}
+.qz-row .abtn{flex:1;min-width:9em}
+.qz-score{text-align:center;display:grid;gap:6px;padding:12px 0}
+.qz-score .big{font-family:var(--f-display);font-size:54px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.qz-score .big small{font-size:24px;color:var(--muted)}
+.qz-score p{margin:0;font-family:var(--f-body);font-size:17px;color:var(--muted)}
+.qz-miss{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.qz-miss li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:15px;line-height:1.6;word-break:keep-all}
+.qz-miss li span{display:block;color:var(--jade);font-weight:600;margin-top:4px}
 @media (prefers-reduced-motion:reduce){.toc,.s{transition:none}}
 </style></head><body>
 
@@ -207,6 +250,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
   </button>
   <div class="where" id="where"></div>
   <div class="tools">
+    <button class="qzb" id="quizBtn" hidden aria-label="논어 퀴즈">퀴즈</button>
     <button id="fsDown" aria-label="글자 작게">가<sub>−</sub></button>
     <button id="fsUp" aria-label="글자 크게">가<sup>+</sup></button>
   </div>
@@ -217,6 +261,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
     <h2>목차</h2>
     <div class="meta" id="tocMeta"></div>
     <div class="bar" aria-hidden="true"><i id="tocBar"></i></div>
+    <button class="abtn ghost" id="quizToc" hidden>논어 퀴즈 풀기</button>
     <div class="appbox" id="appBox" hidden>
       <button class="abtn" id="installBtn" hidden><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>앱으로 설치하기</button>
       <div class="save" id="saveBox">
@@ -233,6 +278,14 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 <div class="scrim" id="scrim" hidden></div>
 
 <main><div class="appnote" id="appNote" hidden><span id="appNoteTx"></span><button class="go" id="appNoteGo"></button><button class="x" id="appNoteX" aria-label="닫기"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><article class="reader" id="reader" lang="ko"></article></main>
+<section class="quiz" id="quiz" role="dialog" aria-modal="true" aria-labelledby="qzTitle" hidden>
+  <div class="qz-top">
+    <button id="qzBack" aria-label="회차 목록으로"><svg class="ico" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <b id="qzTitle">논어 퀴즈</b><span class="pg" id="qzProg"></span>
+    <button id="qzClose" aria-label="퀴즈 닫기"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="qz-body" id="qzBody"></div>
+</section>
 <div class="lock" id="lock" hidden><div class="lock-in">
   <img id="lockImg" alt="" width="88" height="88">
   <h1>논어통독 오디오북</h1>
@@ -573,6 +626,7 @@ $('fsDown').onclick = function(){ st.fs = Math.max(0, (st.fs == null ? 3 : st.fs
 
 document.addEventListener('keydown', function(e){
   if (e.target.closest && e.target.closest('input,textarea')) return;
+  if (!$('quiz').hidden) return;
   if (e.key === ' ' && (e.target === document.body || !e.target.closest('button'))){ e.preventDefault(); toggle(); }
   else if (e.key === 'ArrowLeft') $('back').click();
   else if (e.key === 'ArrowRight') $('fwd').click();
@@ -596,6 +650,102 @@ if (hi >= 0){ start = hi; startT = (st.track === hash) ? (st.time || 0) : 0; }
 else if (st.track){ var si = T.findIndex(function(t){ return t.id === st.track; }); if (si >= 0){ start = si; startT = st.time || 0; } }
 load(start, startT, false);
 if (matchMedia('(min-width:1100px)').matches) openToc(true);
+
+/* ---------- 논어 퀴즈 ---------- */
+var QZ = BOOK.quiz;
+if (QZ && QZ.items && QZ.items.length){
+  var MARK = ['①', '②', '③', '④'];
+  var qz = {set: null, i: 0, score: 0, miss: [], round: -1};
+  st.quizBest = st.quizBest || {};
+  $('quizBtn').hidden = false;
+  var qt = $('quizToc'); qt.hidden = false; qt.textContent = '논어 퀴즈 풀기 · ' + QZ.items.length + '문제';
+  function qzOpen(){ $('quiz').hidden = false; qzHome(); if (!matchMedia('(min-width:1100px)').matches) openToc(false); }
+  function qzClose(){ $('quiz').hidden = true; }
+  $('quizBtn').onclick = qzOpen; qt.onclick = qzOpen;
+  $('qzClose').onclick = qzClose;
+  $('qzBack').onclick = function(){ qzHome(); };
+  function qzHome(){
+    qz.set = null; $('qzTitle').textContent = '논어 퀴즈'; $('qzProg').textContent = ''; $('qzBack').hidden = true;
+    var h = '<div class="qz-wrap"><p class="qz-intro">『논어통독』에서 뽑은 ' + QZ.items.length + '문제입니다. 회차마다 10문제이고, 문제를 풀고 나면 그 대목을 바로 들을 수 있습니다.</p><div class="qz-rounds">';
+    QZ.rounds.forEach(function(r, ri){
+      var n = QZ.items.filter(function(x){ return x.r === ri; }).length, b = st.quizBest[ri];
+      h += '<button class="qz-round" data-r="' + ri + '"><span class="qz-han" aria-hidden="true">' + esc(r.han || '') + '</span><span><b>' + (ri + 1) + '회 · ' + esc(r.title) + '</b><small>' + esc(r.sub || '') + '</small></span><span class="best">' + (b != null ? '최고 ' + b + '/' + n : n + '문제') + '</span></button>';
+    });
+    var bm = st.quizBest.mix;
+    h += '<button class="qz-round" data-r="mix"><span class="qz-han" aria-hidden="true">雜</span><span><b>섞어서 10문제</b><small>모든 회차에서 무작위로 나옵니다</small></span><span class="best">' + (bm != null ? '최고 ' + bm + '/10' : '10문제') + '</span></button>';
+    h += '</div></div>';
+    $('qzBody').innerHTML = h; $('qzBody').scrollTop = 0;
+  }
+  function qzStart(r){
+    var set;
+    if (r === 'mix'){ set = QZ.items.slice(); for (var i = set.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var tmp = set[i]; set[i] = set[j]; set[j] = tmp; } set = set.slice(0, 10); }
+    else set = QZ.items.filter(function(x){ return x.r === r; });
+    qz = {set: set, i: 0, score: 0, miss: [], round: r};
+    $('qzTitle').textContent = r === 'mix' ? '섞어서 10문제' : (r + 1) + '회 · ' + QZ.rounds[r].title;
+    $('qzBack').hidden = false;
+    qzShow();
+  }
+  function qzShow(){
+    var it = qz.set[qz.i];
+    $('qzProg').textContent = (qz.i + 1) + ' / ' + qz.set.length;
+    var h = '<div class="qz-wrap"><div class="qz-meta">' + (qz.i + 1) + '번 문제' + (it.v ? ' · ' + esc(it.v) + '장' : '') + '</div>';
+    if (it.o) h += '<p class="qz-o" lang="zh-Hant">' + esc(it.o) + '</p>';
+    h += '<p class="qz-text">' + esc(it.q) + '</p><div class="qz-opts">';
+    it.c.forEach(function(c, ci){ h += '<button class="qz-opt" data-c="' + ci + '"><span class="k">' + MARK[ci] + '</span><span>' + esc(c) + '</span></button>'; });
+    h += '</div><div id="qzAfter"></div></div>';
+    $('qzBody').innerHTML = h; $('qzBody').scrollTop = 0;
+  }
+  function qzAnswer(ci){
+    var it = qz.set[qz.i], ok = ci === it.a;
+    if (ok) qz.score++; else qz.miss.push(it);
+    [].forEach.call($('qzBody').querySelectorAll('.qz-opt'), function(b){
+      var k = +b.dataset.c; b.disabled = true;
+      if (k === it.a) b.classList.add('ok'); else if (k === ci) b.classList.add('ng'); else b.classList.add('dim');
+    });
+    var last = qz.i === qz.set.length - 1;
+    var h = '<div class="qz-ex"><b class="' + (ok ? 'good' : 'bad') + '">' + (ok ? '정답입니다!' : '아쉬워요. 정답은 ' + MARK[it.a] + '번') + '</b>' + esc(it.ex) + '</div>'
+      + '<div class="qz-row"><button class="abtn ghost" id="qzListen">이 대목 듣기</button><button class="abtn" id="qzNext">' + (last ? '결과 보기' : '다음 문제') + '</button></div>';
+    $('qzAfter').innerHTML = h;
+    $('qzListen').onclick = function(){ qzListen(it); };
+    $('qzNext').onclick = function(){ if (last) qzEnd(); else { qz.i++; qzShow(); } };
+    setTimeout(function(){ var a = $('qzAfter'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }, 30);
+  }
+  function qzEnd(){
+    var n = qz.set.length, key = qz.round === 'mix' ? 'mix' : qz.round;
+    if (st.quizBest[key] == null || qz.score > st.quizBest[key]) { st.quizBest[key] = qz.score; save(); }
+    $('qzProg').textContent = '';
+    var msg = qz.score === n ? '만점입니다. 공자께서도 기뻐하시겠습니다.' : qz.score >= n * 0.7 ? '훌륭합니다. 틀린 문제만 다시 보면 완벽합니다.' : '틀린 대목을 오디오북으로 한 번 들어 보세요.';
+    var h = '<div class="qz-wrap"><div class="qz-score"><div class="big">' + qz.score + '<small> / ' + n + '</small></div><p>' + msg + '</p></div>';
+    if (qz.miss.length){
+      h += '<div class="qz-meta">다시 볼 문제</div><ul class="qz-miss">';
+      qz.miss.forEach(function(it, mi){ h += '<li>' + esc(it.q) + '<span>정답: ' + esc(it.c[it.a]) + '</span><button class="linkbtn" data-miss="' + mi + '">이 대목 듣기</button></li>'; });
+      h += '</ul>';
+    }
+    h += '<div class="qz-row"><button class="abtn ghost" id="qzAgain">다시 풀기</button><button class="abtn" id="qzHome">다른 회차</button></div></div>';
+    $('qzBody').innerHTML = h; $('qzBody').scrollTop = 0;
+    $('qzAgain').onclick = function(){ qzStart(qz.round); };
+    $('qzHome').onclick = qzHome;
+  }
+  function qzListen(it){
+    var ti = T.findIndex(function(t){ return t.id === it.t; });
+    if (ti < 0) return;
+    var t0 = 0, tr = T[ti];
+    for (var bi = 0; bi < tr.blocks.length && !t0; bi++){
+      var b = tr.blocks[bi];
+      if (!b.ts) continue;
+      if (it.v && ((b.t === 'orig' && b.vn === it.v) || (b.t === 'verse' && b.s[0].indexOf(it.v + ' ') === 0))) t0 = b.ts[0];
+      else if (!it.v && it.k){ for (var si = 0; si < b.s.length; si++){ if (b.s[si].indexOf(it.k) >= 0){ t0 = b.ts[si]; break; } } }
+    }
+    qzClose();
+    load(ti, t0, true);
+  }
+  $('qzBody').addEventListener('click', function(e){
+    var r = e.target.closest('.qz-round'); if (r){ qzStart(r.dataset.r === 'mix' ? 'mix' : +r.dataset.r); return; }
+    var o = e.target.closest('.qz-opt'); if (o && !o.disabled){ qzAnswer(+o.dataset.c); return; }
+    var m = e.target.closest('[data-miss]'); if (m){ qzListen(qz.miss[+m.dataset.miss]); }
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !$('quiz').hidden) qzClose(); });
+}
 
 /* ---------- 설치형 앱 (배포판에서만) ---------- */
 if (!window.NONUH_APP) return;
