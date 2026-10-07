@@ -88,6 +88,7 @@ h2.sub{font-family:var(--f-display);font-weight:700;font-size:1.08em;margin:1.8e
   border-left:3px solid var(--slip);background:var(--wash);background:color-mix(in srgb,var(--slip) 16%,transparent);border-radius:0 6px 6px 0;cursor:pointer}
 .orig .tag,.verse .vno{font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--jade);margin-right:8px;white-space:nowrap}
 .verse{font-weight:700;margin-bottom:1.6em!important}
+.orig .yin{display:block;margin-top:8px;font-family:var(--f-ui);font-weight:400;font-size:.78em;line-height:1.7;color:var(--muted);letter-spacing:.01em;word-break:keep-all}
 .sign{text-align:right;color:var(--muted)}
 ul.notes{list-style:none;margin:0 0 1.4em;padding:0;display:grid;gap:.5em}
 ul.notes li{padding-left:1em;text-indent:-1em}
@@ -364,6 +365,11 @@ function render(i){
       case 'h2':
         h += '<h2 class="sub">' + sent(b.s[0]) + '</h2>'; break;
       case 'orig':
+        if (ts){
+          h += '<p class="orig" lang="zh-Hant"><span class="tag">' + (b.vn ? '원문 ' + esc(b.vn) : '원문') + '</span>' + b.s.map(sent).join('')
+             + (b.r ? '<span class="yin" lang="ko">' + esc(b.r) + '</span>' : '') + '</p>';
+          break;
+        }
         var m = /^(\d+\.\d+)\s+/.exec(b.s[0]);
         h += '<p class="orig" lang="zh-Hant" data-next="' + k + '"><span class="tag">' + (m ? '원문 ' + esc(m[1]) : '원문') + '</span>' + withNotes(m ? b.s[0].slice(m[0].length) : b.s[0], b.n) + '</p>'; break;
       case 'verse':
@@ -600,7 +606,7 @@ var inKakao = /KAKAOTALK/i.test(ua);
 var inApp = inKakao || /NAVER\(inapp|FBAN|FBAV|Instagram|Line\//i.test(ua);
 var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 var deferred = null;
-var AUDIO_CACHE = 'nonuh-audio-v1';
+var AUDIO_CACHE = 'nonuh-audio-v2';
 var totalBytes = T.reduce(function(a,t){ return a + (t.size || 0); }, 0);
 function mb(b){ return Math.round(b / 1048576) + 'MB'; }
 
@@ -719,7 +725,7 @@ if (swOk){
   if (!window.NONUH_LOCK){ if (txt && txt !== 'null') NONUH_BOOT(JSON.parse(txt)); return; }
 
   /* ---------- 비밀번호 잠금 (배포판) ---------- */
-  var L = window.NONUH_LOCK, KEYSTORE = 'nonuh-key-v1', AUDIO_CACHE = 'nonuh-audio-v1';
+  var L = window.NONUH_LOCK, KEYSTORE = 'nonuh-key-v1', AUDIO_CACHE = 'nonuh-audio-v2';
   var $ = function(id){ return document.getElementById(id); };
   var lock = $('lock'), form = $('lockForm'), pw = $('lockPw'), btn = $('lockBtn'), msg = $('lockMsg'), state = $('lockState');
   var ua = navigator.userAgent || '';

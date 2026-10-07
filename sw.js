@@ -1,6 +1,6 @@
 /* 논어통독 오디오북 서비스워커: 앱 화면은 오프라인용으로 보관, 음성은 '저장'한 장만 보관 */
-var SHELL = 'nonuh-shell-v2';
-var AUDIO = 'nonuh-audio-v1';
+var SHELL = 'nonuh-shell-v3';
+var AUDIO = 'nonuh-audio-v2';
 var FONTS = 'nonuh-fonts-v1';
 var SHELL_FILES = ['./', './index.html', './data.bin', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
@@ -10,7 +10,7 @@ self.addEventListener('install', function (e) {
 
 self.addEventListener('activate', function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (k) { return k.indexOf('nonuh-shell-') === 0 && k !== SHELL; }).map(function (k) { return caches.delete(k); }));
+    return Promise.all(keys.filter(function (k) { return (k.indexOf('nonuh-shell-') === 0 && k !== SHELL) || (k.indexOf('nonuh-audio-') === 0 && k !== AUDIO); }).map(function (k) { return caches.delete(k); }));
   }).then(function () { return self.clients.claim(); }));
 });
 
