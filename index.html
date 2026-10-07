@@ -212,6 +212,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .qz-round{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .qz-round:hover{border-color:var(--jade)}
 .qz-han{width:46px;height:46px;display:grid;place-items:center;border-radius:6px;background:var(--slip);color:var(--slip-ink);font-family:var(--f-han);font-size:24px}
+.qz-han.two{height:auto;min-height:52px;padding:6px 0;font-size:17px;line-height:1.1;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.06em}
 .qz-round b{display:block;font-family:var(--f-display);font-size:17px}
 .qz-round small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
 .qz-round .best{font-size:12.5px;color:var(--jade);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -656,7 +657,7 @@ var QZ = BOOK.quiz;
 if (QZ && QZ.items && QZ.items.length){
   var MARK = ['①', '②', '③', '④'];
   var qz = {set: null, i: 0, score: 0, miss: [], round: -1};
-  st.quizBest = st.quizBest || {};
+  st.quizBest2 = st.quizBest2 || {};
   $('quizBtn').hidden = false;
   var qt = $('quizToc'); qt.hidden = false; qt.textContent = '논어 퀴즈 풀기 · ' + QZ.items.length + '문제';
   function qzOpen(){ $('quiz').hidden = false; qzHome(); if (!matchMedia('(min-width:1100px)').matches) openToc(false); }
@@ -664,15 +665,16 @@ if (QZ && QZ.items && QZ.items.length){
   $('quizBtn').onclick = qzOpen; qt.onclick = qzOpen;
   $('qzClose').onclick = qzClose;
   $('qzBack').onclick = function(){ qzHome(); };
+  function qzName(r, ri){ return r.label ? r.label + ' · ' + r.title : (ri + 1) + '회 · ' + r.title; }
   function qzHome(){
     qz.set = null; $('qzTitle').textContent = '논어 퀴즈'; $('qzProg').textContent = ''; $('qzBack').hidden = true;
-    var h = '<div class="qz-wrap"><p class="qz-intro">『논어통독』에서 뽑은 ' + QZ.items.length + '문제입니다. 회차마다 10문제이고, 문제를 풀고 나면 그 대목을 바로 들을 수 있습니다.</p><div class="qz-rounds">';
+    var h = '<div class="qz-wrap"><p class="qz-intro">『논어통독』에서 뽑은 ' + QZ.items.length + '문제입니다. 제1편부터 제20편까지 편마다 10문제이고, 문제를 풀고 나면 그 대목을 바로 들을 수 있습니다.</p><div class="qz-rounds">';
+    var bm = st.quizBest2.mix;
+    h += '<button class="qz-round" data-r="mix"><span class="qz-han" aria-hidden="true">雜</span><span><b>섞어서 10문제</b><small>20편 전체에서 무작위로 나옵니다</small></span><span class="best">' + (bm != null ? '최고 ' + bm + '/10' : '10문제') + '</span></button>';
     QZ.rounds.forEach(function(r, ri){
-      var n = QZ.items.filter(function(x){ return x.r === ri; }).length, b = st.quizBest[ri];
-      h += '<button class="qz-round" data-r="' + ri + '"><span class="qz-han" aria-hidden="true">' + esc(r.han || '') + '</span><span><b>' + (ri + 1) + '회 · ' + esc(r.title) + '</b><small>' + esc(r.sub || '') + '</small></span><span class="best">' + (b != null ? '최고 ' + b + '/' + n : n + '문제') + '</span></button>';
+      var n = QZ.items.filter(function(x){ return x.r === ri; }).length, b = st.quizBest2[ri];
+      h += '<button class="qz-round" data-r="' + ri + '"><span class="qz-han' + ((r.han || '').length > 1 ? ' two' : '') + '" aria-hidden="true">' + esc(r.han || '') + '</span><span><b>' + esc(qzName(r, ri)) + '</b><small>' + esc(r.sub || '') + '</small></span><span class="best">' + (b != null ? '최고 ' + b + '/' + n : n + '문제') + '</span></button>';
     });
-    var bm = st.quizBest.mix;
-    h += '<button class="qz-round" data-r="mix"><span class="qz-han" aria-hidden="true">雜</span><span><b>섞어서 10문제</b><small>모든 회차에서 무작위로 나옵니다</small></span><span class="best">' + (bm != null ? '최고 ' + bm + '/10' : '10문제') + '</span></button>';
     h += '</div></div>';
     $('qzBody').innerHTML = h; $('qzBody').scrollTop = 0;
   }
@@ -681,7 +683,7 @@ if (QZ && QZ.items && QZ.items.length){
     if (r === 'mix'){ set = QZ.items.slice(); for (var i = set.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var tmp = set[i]; set[i] = set[j]; set[j] = tmp; } set = set.slice(0, 10); }
     else set = QZ.items.filter(function(x){ return x.r === r; });
     qz = {set: set, i: 0, score: 0, miss: [], round: r};
-    $('qzTitle').textContent = r === 'mix' ? '섞어서 10문제' : (r + 1) + '회 · ' + QZ.rounds[r].title;
+    $('qzTitle').textContent = r === 'mix' ? '섞어서 10문제' : qzName(QZ.rounds[r], r);
     $('qzBack').hidden = false;
     qzShow();
   }
@@ -712,7 +714,7 @@ if (QZ && QZ.items && QZ.items.length){
   }
   function qzEnd(){
     var n = qz.set.length, key = qz.round === 'mix' ? 'mix' : qz.round;
-    if (st.quizBest[key] == null || qz.score > st.quizBest[key]) { st.quizBest[key] = qz.score; save(); }
+    if (st.quizBest2[key] == null || qz.score > st.quizBest2[key]) { st.quizBest2[key] = qz.score; save(); }
     $('qzProg').textContent = '';
     var msg = qz.score === n ? '만점입니다. 공자께서도 기뻐하시겠습니다.' : qz.score >= n * 0.7 ? '훌륭합니다. 틀린 문제만 다시 보면 완벽합니다.' : '틀린 대목을 오디오북으로 한 번 들어 보세요.';
     var h = '<div class="qz-wrap"><div class="qz-score"><div class="big">' + qz.score + '<small> / ' + n + '</small></div><p>' + msg + '</p></div>';

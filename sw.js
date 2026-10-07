@@ -1,5 +1,5 @@
 /* 논어통독 오디오북 서비스워커: 앱 화면은 오프라인용으로 보관, 음성은 '저장'한 장만 보관 */
-var SHELL = 'nonuh-shell-v5';
+var SHELL = 'nonuh-shell-v6';
 var AUDIO = 'nonuh-audio-v2';
 var FONTS = 'nonuh-fonts-v1';
 var SHELL_FILES = ['./', './index.html', './quiz.html', './data.bin', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
